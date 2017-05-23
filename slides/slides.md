@@ -1,7 +1,7 @@
 ---
 author:
 - D. Bramreiter, M. Ebner, P. Leitner, C. Lipautz
-title: Hyperbolic Tree Implementation using d3.js
+title: Hyperbolic Tree Browser Implementation
 subtitle: INFOVIS - Group 1, SS 2017
 institute: Graz University of Technology
 
@@ -10,29 +10,51 @@ institute: Graz University of Technology
 ## Presentation Overview
 
 - Motivation
-- Setup and Usage
-- Overview
+- Project Setup
+- Usage and Goals
 
-## Motivation: Hyperbolic Tree
+## Motivation: Hyperbolic Tree Browser
 
-- Focus on Context, view details about few, little about many.
-- Summarize amount of information in order to be captured by human brain.
-- Using animation ensures being able to follow and understand relationships.
+- Handle large hierarchical data
+- Use interaction and animation to browse
+- Display a fisheye overview, details on focus
+- Summary from Course\footnote{Chapter 5.3.3 Hyperbolic Browser in Course Notes}
 
-## Setup
+## Motivation: Hyperbolic Tree Browser
 
-- d3.js Data-Driven Documents <!-- Use to keep track and update data -->
+\small
+![Hyperbolic Tree Example]
+
+\tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
+
+## Motivation: Hyperbolic Tree Browser
+
+- Focus on the context visible <!-- view details about few, little about many -->
+- Summarize amount of information <!-- in order to be captured by human brain -->
+- Use animation to follow relations <!-- ensures being able to follow and understand relationships -->
+
+## Project Setup: Runtime Environment
+
+- Data-Driven Documents using D3.js <!-- Use to keep track and update data -->
 - Algorithm to generate via JavaScript
-- HTML/SVG + CSS
+- Present using HTML/SVG and CSS
 
-## Usage
+## Project Setup: Development Environment
+
+- Jest <!-- unit testing for algorithm, and snapshot testing -->
+- Yarn, Webpack, ES6 <!-- state of the art env -->
+- HTML5, SVG 1.1, CSS3 <!-- no fancy extensions, keep to the basics -->
+
+## Usage and Goals
 
 - Minimal dependencies <!-- to JavaScript packages -->
 - No general styles, no hard bound styles <!-- no generic rules, no id rules -->
 - A11y in mind <!-- implement what learned in survey -->
 
-## Overview: Setup
+## Current State
 
-- jest <!-- snapshot testing -->
-- yarn, webpack, ES6 <!-- state of the art env -->
-- html5, svg 1.1, css3 <!-- no fancy extensions, keep to the basics -->
+- Reading Papers to extract Algorithm
+- Reading Documentations (D3, Jest, ...)
+- Started Project Setup
+
+[Hyperbolic Tree Example]: images/basic_tree.png
