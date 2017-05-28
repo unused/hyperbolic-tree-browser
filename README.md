@@ -14,4 +14,6 @@ $ yarn build # build project files
 $ yarn server # start development server
 $ yarn watch # watch source changes
 $ yarn watch-styles # watch style changes
+$ yarn test # run tests
+$ yarn test -- --watch # watch tests
 ```
