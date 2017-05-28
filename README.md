@@ -11,5 +11,7 @@ A hyperbolic tree implementation using D3.js.
 ```shell
 $ yarn install # install javascript stuff
 $ yarn build # build project files
-$ yarn watch # start development server and watch file changes
+$ yarn server # start development server
+$ yarn watch # watch source changes
+$ yarn watch-styles # watch style changes
 ```
