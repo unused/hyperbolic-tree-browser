@@ -1,0 +1,21 @@
+{
+  "name": "hyperbolic-d3-browser",
+  "version": "0.0.1",
+  "description": "Hyperbolic Tree Browser using D3.js",
+  "main": "index.js",
+  "repository": "git@gitlab.com:infovis/project.git",
+  "author": "Christoph Lipautz <christoph@lipautz.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "node-sass": "^4.5.3",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "build": "node-sass public/assets/styles.scss public/assets/styles.css && webpack",
+    "watch": "browser-sync start -s public/ -f public/ && node-sass public/assets/styles.scss public/assets/styles.css -w && webpack -w"
+  },
+  "dependencies": {
+    "d3": "^4.9.1"
+  }
+}
