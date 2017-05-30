@@ -10,15 +10,15 @@ institute: Graz University of Technology
 ## Presentation Overview
 
 - Motivation
-- Project Setup
-- Usage and Goals
+- Project Setup and Testing
+- Usage, Goals and Current State
 
-## Motivation: Hyperbolic Tree Browser
+## Motivation: Recall Hyperbolic Tree Browser
 
 - Handle large hierarchical data
-- Use interaction and animation to browse
-- Display a fisheye overview, details on focus
-- Summary from Course\footnote{Chapter 5.3.3 Hyperbolic Browser in Course Notes}
+- Drag focus area to switch context (focus+context) <!-- in order to be captured by human brain -->
+- Use animation on switch (click) to follow relations
+- See Course Notes\footnote{Chapter 5.3.3 Hyperbolic Browser in Course Notes}
 
 ## Motivation: Hyperbolic Tree Browser
 
@@ -27,16 +27,10 @@ institute: Graz University of Technology
 
 \tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
 
-## Motivation: Hyperbolic Tree Browser
-
-- Focus on the context visible <!-- view details about few, little about many -->
-- Drag focus area to switch context <!-- in order to be captured by human brain -->
-- Use animation on click to follow relations <!-- ensures being able to follow and understand relationships -->
-
 ## Project Setup: Runtime Environment
 
 - Data-Driven Documents using D3.js (v4) <!-- Use to keep track and update data -->
-- Algorithm to generate via JavaScript
+- Algorithm to generate via JavaScript (Poincaré disk model)
 - Present using HTML/SVG and CSS
 
 ## Project Setup: Development Environment
@@ -46,17 +40,35 @@ institute: Graz University of Technology
 - HTML5, SVG 1.1, CSS3 <!-- no fancy extensions, keep to the basics -->
 - D3.js version 4.x
 
+## Jest: Testing
+
+```javascript
+import Subject from './../src/hyperbolic_d3';
+
+test('does something', () => {
+    expect(typeof (new Subject()).doSomething)
+      .toEqual('function');
+});
+```
+
+## Jest: Snapshot Testing
+
+- Snapshot Testing uses HTML Document
+- Snapshot Testing with Node.js has no HTML Document
+- Current Challenge: Use JSDOM
+
 ## Usage and Goals
 
-- Minimal dependencies <!-- to JavaScript packages -->
-- Follow D3 guidelines
-- No general styles, no hard bound styles <!-- no generic rules, no id rules -->
-- A11y in mind <!-- implement what learned in survey -->
+- Minimal Dependencies <!-- to JavaScript packages -->
+- Follow D3 (v4.9.x) Guidelines
+- No General Styles, No Hard Bound Styles <!-- no generic rules, no id rules -->
+- A11y in Mind <!-- implement what learned in survey -->
 
 ## Current State
 
-- Reading Papers to extract Algorithm
-- Reading Documentations (D3v4, Jest, ...)
-- Started Project Setup
+- Complete Setup for Jest Testing Environment
+- Implement Algorithm in Object-Oriented JavaScript using Poincaré Model
+- Use D3.js to Update Data and Animate View
+- Ongoing Documentation
 
 [Hyperbolic Tree Example]: images/basic_tree.png
