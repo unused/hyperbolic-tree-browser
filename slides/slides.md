@@ -29,16 +29,16 @@ institute: Graz University of Technology
 
 ## Project Setup: Runtime Environment
 
-- Data-Driven Documents using D3.js (v4) <!-- Use to keep track and update data -->
-- Algorithm to generate via JavaScript (Poincaré disk model)
-- Present using HTML/SVG and CSS
+- Data-Driven Documents using D3.js (v4). <!-- Use to keep track and update data -->
+- Algorithm to generate the visualization via JavaScript (Poincaré disk model).
+- Present using HTML/SVG and CSS.
 
 ## Project Setup: Development Environment
 
 - Jest <!-- unit testing for algorithm, and snapshot testing for the result -->
 - Yarn, Webpack, ES6 <!-- state of the art env -->
 - HTML5, SVG 1.1, CSS3 <!-- no fancy extensions, keep to the basics -->
-- D3.js latest version (4.9.1)
+- D3.js latest (v4.9.1)
 
 ## Jest: Testing
 
@@ -53,7 +53,7 @@ test('does something', () => {
 
 ## Jest: Snapshot Testing
 
-- Snapshot Testing uses HTML Document
+Use HTML in snapshot testing with Jest.
 
 ```javascript
 test('use snapshot testing with html', () => {
@@ -64,8 +64,8 @@ test('use snapshot testing with html', () => {
 
 ## Jest: Snapshot Testing in Node.js
 
-- Snapshot Testing with Node.js has no HTML Document
-- Current Challenge: Use JSDOM
+- Snapshot testing in Node.js has no HTML document.
+- Current challenge: Use JSDOM to simulate (partial) documents.
 
 ## Jest: Snapshot Testing with JSDOM
 
@@ -89,14 +89,14 @@ test('use snapshot testing with d3', () => {
 
 - Minimal Dependencies <!-- to JavaScript packages -->
 - Follow D3 (v4.9.1) Guidelines
-- No General Styles, No Hard Bound Styles <!-- no generic rules, no id rules -->
+- No General Styles; No Hard Bound Styles <!-- no generic rules, no id rules -->
 - A11y in Mind <!-- implement what learned in survey -->
 
 ## Current State
 
-- Complete Setup for Jest Testing Environment
-- Implement Algorithm in Object-Oriented JavaScript converting to Poincaré Disk Model
-- Use D3.js to Update Data and Animate View
-- Ongoing Documentation
+- Complete setup for Jest testing environment.
+- Implement algorithm in object-oriented JavaScript converting to Poincaré disk model.
+- Use D3.js to update data and animate view.
+- Write ongoing documentation.
 
 [Hyperbolic Tree Example]: images/basic_tree.png
