@@ -1,7 +1,7 @@
 ---
 author:
 - D. Bramreiter, M. Ebner, P. Leitner, C. Lipautz
-title: Hyperbolic Tree Browser using D3.js
+title: Hyperbolic Tree Browser using D3.js v4.x
 subtitle: INFOVIS - Group 1, SS 2017
 institute: Graz University of Technology
 
