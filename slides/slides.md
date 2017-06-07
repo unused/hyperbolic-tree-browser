@@ -65,9 +65,7 @@ institute: Graz University of Technology
 \tiny Source: Mathematics and Algorithms for the Hyperbolic Tree Visualization (Benjamin Berge, Christophe Bouthier)
 
 ## Next Steps
-- Contact other group
--- Import data
--- Algorithm
+- Contact other group to sync 'import data'
 - Convert to Poincaré disc model
 - Add dragging for browsing the hyperbolic tree layout
 
