@@ -9,81 +9,68 @@ institute: Graz University of Technology
 
 ## Presentation Overview
 
-- Motivation
-- Project Setup and Testing
-- Usage, Goals and Current State
+- JSON Tree and D3.hierarchy
+- Radial Tide Tree Demo in D3
+- Goals and Current State
 
-## Motivation: Recall Hyperbolic Tree Browser
 
-- Handle large hierarchical data
-- Drag focus area to switch context (focus+context) <!-- in order to be captured by human brain -->
-- Use animation on switch (click) to follow relations
-- See Course Notes\footnote{Chapter 5.3.3 Hyperbolic Browser in Course Notes}
+## JSON Tree and D3.Hierarchy
+```javascript
+{
+    "name": "UCI",
+    "children": [
+        {
+            "name": "World Tour",
+            "children": [
+                {
+                  "name": "AG2R La Mondiale"
+                },
+                {
+                  "name": "Astana Pro Cycling Team"
+                },
+                {
+                  "name": "Bahrain Merida PRo Cycling Team"
+                },
+                {
+                  "name": "BMC Racing Team"
+                },
+                {
+                  "name": "Bora - Hansgrohe"
+                }
+            ]
+        }
+    ]
+}
+```
 
-## Motivation: Hyperbolic Tree Browser
+
+## Radial Tide Tree in D3
 
 \small
-![Hyperbolic Tree Example]
+![Radial Tide Tree in D3]
 
-\tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
+\tiny Adapted from https://bl.ocks.org/mbostock/4063550
 
-## Project Setup: Runtime Environment
 
-- Data-Driven Documents using D3.js (v4). <!-- Use to keep track and update data -->
-- Algorithm to generate the visualization via JavaScript (Poincaré disk model).
-- Present using HTML/SVG and CSS.
+## Hyperbolic Layout
+\small
+![Hypertree Default]
 
-## Project Setup: Development Environment
+\tiny Source: Mathematics and Algorithms for the Hyperbolic Tree Visualization (Benjamin Berge, Christophe Bouthier)
 
-- Jest <!-- unit testing for algorithm, and snapshot testing for the result -->
-- Yarn, Webpack, ES6 <!-- state of the art env -->
-- HTML5, SVG 1.1, CSS3 <!-- no fancy extensions, keep to the basics -->
-- D3.js latest (v4.9.1)
+## Hyperbolic Dragging
+\small
+![Hypertree Drag]
 
-## Jest: Testing
+\tiny Source: Mathematics and Algorithms for the Hyperbolic Tree Visualization (Benjamin Berge, Christophe Bouthier)
 
-```javascript
-import Subject from './../src/hyperbolic_d3';
+## Next Steps
+- Contact other group
+-- Import data
+-- Algorithm
+- Convert to Poincaré disc model
+- Add dragging for browsing the hyperbolic tree layout
 
-test('does something', () => {
-  expect(typeof (new Subject()).doSomething)
-    .toEqual('function');
-});
-```
-
-## Jest: Snapshot Testing
-
-Use HTML in snapshot testing with Jest.
-
-```javascript
-test('use snapshot testing with html', () => {
-  expect('<p class="foo">bar</p>')
-    .toMatchSnapshot();
-});
-```
-
-## Jest: Snapshot Testing in Node.js
-
-- Snapshot testing in Node.js has no HTML document.
-- Current challenge: Use JSDOM to simulate (partial) documents.
-
-## Jest: Snapshot Testing with JSDOM
-
-```javascript
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-
-test('use snapshot testing with d3', () => {
-  const window = new JSDOM('<html><body>').window;
-  const body = window.document.querySelector('body');
-  const d3 = require('d3');
-  d3.select(body)
-    .append('p')
-    .text('Foobar');
-  console.log(window.document.innerHTML);
-  expect(window.document.innerHTML).toMatchSnapshot();
-});
-```
 
 ## Usage and Goals
 
@@ -100,3 +87,7 @@ test('use snapshot testing with d3', () => {
 - Write ongoing documentation.
 
 [Hyperbolic Tree Example]: images/basic_tree.png
+[Radial Tide Tree in D3]: images/ivis_graph_disc_tree002.png
+[Hypertree Default]: images/hypertree001.png
+[Hypertree Drag]: images/hypertree002.png
+
