@@ -15,7 +15,6 @@ institute: Graz University of Technology
 
 
 ## JSON Tree and D3.Hierarchy
-\small
 ```javascript
 {
     "name": "UCI",
