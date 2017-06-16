@@ -1,7 +1,7 @@
 
-import RadialTree from './radial_tree';
+import HierarchyData from './hierarchy_data';
+import RadialTree    from './radial_tree';
 
-fetch('/assets/data/simple.json')
-  .then(response => response.json())
-  .then(data => (new RadialTree()).draw(data));
+(new HierarchyData('json'))
+  .fetch('assets/data/simple.json').then(data => (new RadialTree()).draw(data));
 
