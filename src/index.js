@@ -1,5 +1,7 @@
 
-import Example from './hyperbolic_d3';
+import RadialTree from './radial_tree';
 
-(new Example()).doSomething();
+fetch('/assets/data/simple.json')
+  .then(response => response.json())
+  .then(data => (new RadialTree()).draw(data));
 

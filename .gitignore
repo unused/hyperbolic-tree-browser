@@ -1,2 +1,5 @@
 /build/*
 /node_modules
+/npm-debug.log
+/public/assets/bundle.js
+/public/assets/styles.css
