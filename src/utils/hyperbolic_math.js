@@ -1,4 +1,18 @@
+import math from 'mathjs';
 
+/**
+ * Hyperbolic Geometry
+ *
+ * Implements ... TODO
+ *
+ * Usage:
+ *   import hyperbolic from 'hyperbolicjs';
+ *
+ *   hyperbolic.toEuclidian(z, theta, p);
+ *   hyperbolic.toHyperbolic(z, theta, p);
+ *
+ * References: ...
+ **/
 export default {
 
   //------------------------------------------------------------------------
@@ -7,70 +21,86 @@ export default {
   /**
    * Complex function of z
    *
-   * P and Deta are complex numbers:
+   * P and theta are complex numbers:
    *   |P| < 1 and
-   *   |deta| = 1
+   *   |theta| = 1
    *
    * P_bar is is the complex conjugate of P.
    *
-   * This transformation indicates a rotation by DETA around the origin,
+   * This transformation indicates a rotation by theta around the origin,
    * followed by moving the origin to P (and -P to the origin).
    *
-   * zt = detaz + P
+   * zt = thetaz + P
    *      ----------
-   *      1 + P_ Deta z
+   *      1 + P_ theta z
+   *
+   * To euclidean represents a processing of a circle preserving transformation
+   * of the unit disk.
+   *
+   * Params:
+   *  p ... perspective value, moving the origin to P (or -P to the origin).
+   *  theta ... rotation around the origin.
    **/
-  circlePreservingTransformationOfTheUnitDisk(z, deta, p) {
-    // TODO: Check about P and deta (see in text above)
-    const p_bar = 0; // TODO: p_bar is the complex conjugate of p
-    return (deta * z + p) / (1 + p_bar * deta * z);
-  }
+  toEuclidian: function(z, theta, p) {
+    return math.divide(
+      math.add(math.multiply(theta, z), p),
+      math.add(1, math.multiply(p.conjugate(), theta, z))
+    );
+  },
 
   /**
-   * The transformation (P, Deta), the inverse transformation
+   * TODO ...
+   **/
+  toHyperbolic: function(z, theta, p) {
+    return this.toEuclidian(z, math.multiply(theta.conjugate(), p).neg(),
+      theta.conjugate());
+  },
+
+  /**
+   * The transformation (P, theta), the inverse transformation
    *
    * Which is needed to map from display coordinates back into hyperbolic
    * plane.
    *
-   *   P`= - Deta_bar P
-   *   Deta`= Deta_bar
+   *   P`= - theta_bar P
+   *   theta`= theta_bar
    **/
-  inverseTransformation(p, deta) {
-    const deta_bar = 0; // TODO: deta_bar is complex conjuagate of deta
-    const p_stick = (deta_bar * p) * (-1);
-    const deta_stick = deta_bar;
+  //inverseTransformation(p, theta) {
+    //const theta_bar = 0; // TODO: theta_bar is complex conjuagate of theta
+    //const p_stick = (theta_bar * p) * (-1);
+    //const theta_stick = theta_bar;
 
-    return [p_stick, deta_stick];
-  }
+    //return [p_stick, theta_stick];
+  //}
 
 
   /**
-   * The composition of a transformation (P1, Deta1) followed by (P2, Deta2) is
+   * The composition of a transformation (P1, theta1) followed by (P2, theta2) is
    * given by: ?
    *
    * ref: https://en.wikipedia.org/wiki/Complex_conjugate
    * ref: https://en.wikipedia.org/wiki/Poincar%C3%A9_disk_model
    **/
-  compositionOfATransformation(p1, deta1, p2, deta2) {
-    const p1_bar = 0; // TODO: complex conjugate of P1
-    const p2_bar = 0; // TODO: complex conjugate of P2
+  //compositionOfATransformation(p1, theta1, p2, theta2) {
+    //const p1_bar = 0; // TODO: complex conjugate of P1
+    //const p2_bar = 0; // TODO: complex conjugate of P2
 
-    let p = deta2 * p1 + p2;
-    p = p / (deta2 * p1 * p2_bar + 1);
+    //let p = theta2 * p1 + p2;
+    //p = p / (theta2 * p1 * p2_bar + 1);
 
-    let deta = deta1 * deta2 + deta1 * p1_bar * p2;
-    deta = deta / (deta2 * p1 * p2_bar + 1);
+    //let theta = theta1 * theta2 + theta1 * p1_bar * p2;
+    //theta = theta / (theta2 * p1 * p2_bar + 1);
 
-    // Due to the round-off error, the magnitude of the new DETA may note be
+    // Due to the round-off error, the magnitude of the new theta may note be
     // exactly 1.
-    // Accumulated errors in the magnitutde of DETA can lead to large errrors
+    // Accumulated errors in the magnitutde of theta can lead to large errrors
     // when trasnfroming points near the edge, so we always normalize the new
-    // DETA to a magnitude of 1.
+    // theta to a magnitude of 1.
 
-    // TODO: normalize DETA
+    // TODO: normalize theta
 
-    return [p, deta];
-  }
+    //return [p, theta];
+  //}
 
 
   //------------------------------------------------------------------------
@@ -122,19 +152,19 @@ export default {
    * represents a segment extending the represented distance in the hyperbolic
    * plane.
    **/
-  necessaryDistanceFromParentToChild(a, s) {
-    var d = (1-(s*s) * sin(a) / (2*s));
-    d *= d;
-    d += 1;
-    d = sqrt(d);
-    d = d - ((1-(s*s) * sin(a)) / (2*s));
+  //necessaryDistanceFromParentToChild(a, s) {
+    //var d = (1-(s*s) * sin(a) / (2*s));
+    //d *= d;
+    //d += 1;
+    //d = sqrt(d);
+    //d = d - ((1-(s*s) * sin(a)) / (2*s));
 
-    if(d < s) {
-      d = s;
-    }
+    //if(d < s) {
+      //d = s;
+    //}
 
-    return d;
-  }
+    //return d;
+  //}
 
   /**
    *
@@ -161,7 +191,7 @@ export default {
    * These functions can be implemented using cos, sin and arc tangent
    * and a complex number constructors and selector instead
    **/
-  calculateWedgeInsideASubwedge(subwedge, d) {
-    throw('Not implemented');
-  }
+  //calculateWedgeInsideASubwedge(subwedge, d) {
+    //throw('Not implemented');
+  //}
 }
