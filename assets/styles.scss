@@ -1,7 +1,7 @@
 
-$node: LightSeaGreen;
-$leaf: Teal;
-$link: black;
+$node: Chocolate;
+$leaf: DarkSlateGray;
+$link: CadetBlue;
 
 .hyperbolic-tree {
   .node {
@@ -22,7 +22,7 @@ $link: black;
   .edge {
     fill: none;
     stroke: $link;
-    stroke-opacity: .25;
+    stroke-opacity: .5;
     stroke-width: .125rem;
   }
 }
