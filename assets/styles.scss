@@ -3,24 +3,26 @@ $node: LightSeaGreen;
 $leaf: Teal;
 $link: black;
 
-.node {
-  circle {
-    fill: $node;
+.hyperbolic-tree {
+  .node {
+    circle {
+      fill: $node;
+    }
+
+    &.leaf circle {
+      fill: $leaf;
+    }
+
+    text {
+      font: .75em sans-serif;
+      opacity: .6;
+    }
   }
 
-  &.leaf circle {
-    fill: $leaf;
+  .edge {
+    fill: none;
+    stroke: $link;
+    stroke-opacity: .25;
+    stroke-width: .125rem;
   }
-
-  text {
-    font: .75em sans-serif;
-    opacity: .6;
-  }
-}
-
-.edge {
-  fill: none;
-  stroke: $link;
-  stroke-opacity: .25;
-  stroke-width: .125rem;
 }
