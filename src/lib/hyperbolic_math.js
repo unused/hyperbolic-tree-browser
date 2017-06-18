@@ -58,10 +58,12 @@ const inverseTransform = (p, theta) => {
  * plane.
  *
  * d = sqrt(((1 - s^2) * sin(alpha) / 2s)^2 + 1) - ((1 - s^2) * sin(alpha) / 2s)
+ *
+ * Returns a minimum of s;
  **/
 const subwedgeDistance = (s, alpha) => {
-  const  interim = (1 - s*s) * Math.sin(alpha) / 2 * s;
-  return Math.sqrt(interim * interim + 1) - interim;
+  const interim = (1 - s*s) * Math.sin(alpha) / (2 * s);
+  return Math.max(s, Math.sqrt(interim * interim + 1) - interim);
 };
 
 /**
@@ -139,9 +141,11 @@ export default {
    * calculations of wedges and subwedges.
    **/
   hyperbolicPoint: node => {
+    console.debug('** hyperbolicPoint **', node);
     node.wedge = calculateWedge(node);
+    console.debug('  - wedge', node.wedge);
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
-    console.debug(node.wedge, node.z.re, node.z.im);
+    console.debug('  - wedge', node.z);
     return [node.z.re, node.z.im];
   }
 };
