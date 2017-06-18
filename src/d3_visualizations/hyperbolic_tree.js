@@ -1,8 +1,11 @@
 import * as d3 from 'd3';
 import math from './../lib/hyperbolic_math.js';
 
+const BOX_SIZE = 1000;
+const RADIUS   = BOX_SIZE / 2;
+
 const treemap = d3.tree()
-  .size([2 * Math.PI, 400])
+  .size([2 * Math.PI, RADIUS])
   .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
 /**
@@ -14,8 +17,10 @@ const treemap = d3.tree()
  **/
 class HyperbolicTree {
   constructor(selector) {
-    this.svg = d3.select(selector);
+    this.svg   = d3.select(selector);
     this.group = this.svg.append('g');
+
+    this.svg.attr('viewBox', `0 0 ${BOX_SIZE} ${BOX_SIZE}`);
     this.group.attr('class', 'hyperbolic-tree');
   }
 
@@ -23,14 +28,12 @@ class HyperbolicTree {
     const root = treemap(d3.hierarchy(data));
 
     this.center();
-    this.drawEdges(root);
     this.drawNodes(root);
+    this.drawEdges(root);
   }
 
   center() {
-    const width  = +this.svg.attr('width');
-    const height = +this.svg.attr('height');
-    this.group.attr('transform', `translate(${width / 2},${height / 2})`);
+    this.group.attr('transform', `translate(${RADIUS},${RADIUS})`);
   }
 
   drawEdges(root) {
@@ -46,7 +49,11 @@ class HyperbolicTree {
       .data(root.descendants())
       .enter().append('g')
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
-        .attr('transform', node => `translate(${math.hyperbolicPoint(node)})`);
+        .attr('transform', node => {
+          const unit = math.hyperbolicPoint(node);
+          // return `translate(${unit})`;
+          return `translate(${unit[0] * RADIUS} ${unit[1] * RADIUS})`;
+        });
 
     node.append('circle')
       .attr('r', 5);
