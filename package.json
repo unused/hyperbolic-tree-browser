@@ -2,7 +2,7 @@
   "name": "hyperbolic-d3-browser",
   "version": "0.0.1",
   "description": "Hyperbolic Tree Browser using D3.js",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "git@gitlab.com:infovis/project.git",
   "author": "Christoph Lipautz <christoph@lipautz.org>",
   "license": "MIT",

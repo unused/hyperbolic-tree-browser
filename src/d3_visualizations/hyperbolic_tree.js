@@ -1,14 +1,22 @@
 import * as d3 from 'd3';
-import math from './utils/radial_math';
+import math from './../lib/hyperbolic_math.js';
 
 const treemap = d3.tree()
   .size([2 * Math.PI, 400])
   .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
-class RadialTree {
-  constructor() {
-    this.svg = d3.select('svg');
+/**
+ * A hyperbolic tree visualization.
+ *
+ * Usate:
+ *   const hyperbolicTree = new HyperbolicTree(<selector>);
+ *   hyperbolicTree.draw(data);
+ **/
+class HyperbolicTree {
+  constructor(selector) {
+    this.svg = d3.select(selector);
     this.group = this.svg.append('g');
+    this.group.attr('class', 'hyperbolic-tree');
   }
 
   draw(data) {
@@ -38,7 +46,7 @@ class RadialTree {
       .data(root.descendants())
       .enter().append('g')
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
-        .attr('transform', d => `translate(${math.radialPoint(d.x, d.y)})`);
+        .attr('transform', node => `translate(${math.hyperbolicPoint(node)})`);
 
     node.append('circle')
       .attr('r', 5);
@@ -58,4 +66,4 @@ class RadialTree {
   }
 }
 
-export default RadialTree;
+export default HyperbolicTree;

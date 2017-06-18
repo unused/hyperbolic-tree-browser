@@ -3,9 +3,14 @@ import * as d3 from 'd3';
 /**
  * Import hierarchical data by type and resource.
  *
+ * Construct with any support type of json, ..., ... or ..., retrieving data
+ * from remote using `fetch`, reading using `load` or direct upload using
+ * `upload`.
+ *
  * Usage:
  *   (new HierarchyData('json')).fetch('https://example.com/data.json');
  *   (new HierarchyData('json')).load(<json string>);
+ *   (new HierarchyData('json')).upload();
  **/
 class HierarchyData {
   constructor(type) {
@@ -48,6 +53,10 @@ class HierarchyData {
     return new Promise((resolve, reject) => resolve(data))
       .then(this.convert)
       .then(this.stratify);
+  }
+
+  upload(data) {
+    throw('Not implemented');
   }
 }
 
