@@ -103,11 +103,13 @@ const calculateWedge = node => {
 
   const alpha = wedge.alpha / node.children.length;
 
-  const distance = subwedgeDistance(0.12, alpha);
+  const distance = subwedgeDistance(0.28, alpha);
 
   let subwedge = {}
 
+  console.debug('p debug', math.multiply(m, distance), p, theta);
   subwedge.p = transform(math.multiply(m, distance), p, theta);
+  console.debug('  ... p debug', subwedge.p);
   subwedge.m = transform(transform(m, p, theta), subwedge.p.neg(), theta);
 
   const neg_d    = math.complex(-distance, 0);
@@ -145,7 +147,11 @@ export default {
     node.wedge = calculateWedge(node);
     console.debug('  - wedge', node.wedge);
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
-    console.debug('  - wedge', node.z);
-    return [node.z.re, node.z.im];
+    console.debug('  - z', node.z);
+
+    let x = node.z.im * math.sin(node.wedge.alpha * (Math.PI / 2));
+    let y = node.z.im * math.cos(node.wedge.alpha * (Math.PI / 2));
+    console.debug('  - result', x, y);
+    return [x, y];
   }
 };
