@@ -38,10 +38,25 @@ class HyperbolicTree {
 
   drawEdges(root) {
     this.group.selectAll('.edge')
-      .data(root.links())
-      .enter().append('path')
-        .attr('class', 'edge')
-        .attr('d', d3.linkRadial().angle(d => d.x).radius(d => d.y));
+    .data(root.links())
+    .enter().append('line')
+    .attr("stroke-width", function(d) {
+          //console.log("Edge Data");
+          //console.log(d);
+          //console.log(d.target.wedge);
+          return Math.sqrt(2);
+          })
+    
+    //.enter().append('path')
+    .attr('class', 'edge')
+    .attr("stroke", "#4D4D4D")
+    .attr("x1", function(d) { return d.source.x * RADIUS; } )
+    .attr("y1", function(d) { return d.source.y * RADIUS; } )
+    .attr("x2", function(d) { return d.target.x * RADIUS; } )
+    .attr("y2", function(d) { return d.target.y * RADIUS; } )
+    
+    //.attr('d', d3.linkRadial().angle(d => d.x).radius(d => d.y));
+    ;
   }
 
   drawNodes(root) {
@@ -65,6 +80,8 @@ class HyperbolicTree {
       .attr('transform', math.textRotation)
       .text(d => d.data.name);
   }
+    
+  
 
   handleClick(event) {
   }
