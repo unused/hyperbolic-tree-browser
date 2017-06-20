@@ -42,10 +42,10 @@ class HyperbolicTree {
     .data(root.links())
     .enter().append('line')
       .attr('class', 'edge')
-      .attr('x1', d => d.source.x)
-      .attr('y1', d => d.source.y)
-      .attr('x2', d => d.target.x)
-      .attr('y2', d => d.target.y);
+      .attr('x1', d => d.source.x * RADIUS)
+      .attr('y1', d => d.source.y * RADIUS)
+      .attr('x2', d => d.target.x * RADIUS)
+      .attr('y2', d => d.target.y * RADIUS);
   }
 
   drawNodes(root) {
@@ -55,7 +55,7 @@ class HyperbolicTree {
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
         .attr('transform', node => {
           const unit = math.hyperbolicPoint(node);
-          return `translate(${unit})`;
+          //return `translate(${unit})`;
           return `translate(${unit[0] * RADIUS} ${unit[1] * RADIUS})`;
         });
 

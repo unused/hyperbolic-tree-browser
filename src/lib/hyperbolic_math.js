@@ -90,7 +90,6 @@ const angleToComplex = alpha => math.complex(Math.sin(alpha), Math.cos(alpha));
  * NUMBER, done by the e^ia These functions can be implemented using cos, sin
  * and arc tangent and a complex number constructors and selector instead.
  **/
-var i = 0;
 const calculateWedge = node => {
   const s = 0.28;
   const wedge = node.parent ? node.parent.wedge : rootWedge;
@@ -99,32 +98,11 @@ const calculateWedge = node => {
     return wedge;
   }
 
-  const s = 0.28;
-  i = i + 1;
-
   const p     = wedge.p;
   const m     = wedge.m;
   const theta = math.complex.one;
 
-  var siblings = 1;
-  if(node.depth > 0) {
-    siblings = node.parent.children.length;
-  }
-  var alpha = wedge.alpha / siblings * i;
-
-  //var alpha = node.wedge.alpha;
-  if(node.depth === 1) {
-    alpha = alpha;
-  } else if (node.depth === 2) {
-    alpha = alpha ;//+ (node.parent.wedge.alpha / 2);
-  } else if (node.depth === 3) {
-    alpha = alpha ;//+ node.parent.wedge.alpha/2 ;//+ node.parent.parent.wedge.alpha/2;
-
-  }
-
-  if(node.depth > 0 && i === node.parent.children.length) {
-    i = 0;
-  }
+  const alpha = wedge.alpha / node.children.length;
 
   const distance = subwedgeDistance(s, alpha);
 
@@ -137,6 +115,32 @@ const calculateWedge = node => {
   subwedge.alpha = transform(angleToComplex(alpha), neg_d, theta).log().im;
 
   return subwedge;
+};
+
+const calculateAlpha = node => {
+  return node.wedge.alpha;
+};
+
+const handleRootNode = node => {
+  node.x = 0;
+  node.y = 0;
+};
+
+const handleRootChild = node => {
+  const alpha = node.parent.wedge.alpha;
+  const childIndex = node.parent.children.reduce((acc, n) => {
+    return acc + (n.wedge ? 0 : 1);
+  }, 0);
+
+  node.x = node.z.im * (Math.sin(alpha * childIndex) * Math.PI / 2);
+  node.y = node.z.im * (Math.cos(alpha * childIndex) * Math.PI / 2);
+  //node.x = node.z.re;
+  //node.y = node.z.im;
+};
+
+const handleChild = node => {
+  node.x = 0;
+  node.y = Math.PI;
 };
 
 /**
@@ -154,8 +158,6 @@ const calculateWedge = node => {
  * @see The Hyperbolic Browser: A Focus + Context Technique for Visualizing
  *   Large Hierarchies, Lamping and Rao 1996
  **/
-let rotations = {
-};
 export default {
   transform:        transform,
   inverseTransform: inverseTransform,
@@ -166,47 +168,30 @@ export default {
    * calculations of wedges and subwedges.
    **/
   hyperbolicPoint: node => {
-    console.debug('** hyperbolicPoint **', node.data.name); //, node);
+    console.group('** hyperbolicPoint %s (%i) **', node.data.name, node.depth);
+
     node.wedge = calculateWedge(node);
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
-    console.debug('  - z', node.z);
-
-    let x = node.z.im;
-    let y = node.z.im;
-    var alpha = node.wedge.alpha;
-    if(node.depth === 1) {
-      alpha = alpha;
-    } else if (node.depth === 2) {
-      alpha = alpha //+ (node.parent.wedge.alpha / 2);
-    } else if (node.depth === 3) {
-      alpha = alpha //+ node.parent.wedge.alpha/2 + node.parent.parent.wedge.alpha/2;
-    }
-    x = node.z.im * math.sin(alpha * (Math.PI / 2) );
-    y = node.z.im * math.cos(alpha * (Math.PI / 2) );
-    console.log(' - r alpha', alpha);
-    node.x = x;
-    node.y = y;
-
-    console.debug('  - result', x, y);
-    return [x, y];
 
     console.debug('  ... wedge', node.wedge);
-    console.debug('  ... z', node.z);
+    console.debug('  ... z',     node.z);
+    console.debug(' ... alpha',  node.wedge.alpha);
 
-    let x = node.x;
-    let y = node.y;
-    const x_y = [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];
-    node.x = x_y[0] * node.z.im;
-    node.y = x_y[1] * node.z.im;
 
-    //node.x = node.z.re;
-    //node.y = node.z.im;
+    // return root node
+    if (node.depth === 0) {
+      handleRootNode(node);
+    }
 
-    //if (rotations[node.height]) {
-      //rotations[node.height] += node.z.im;
-    //} else {
-      //rotations[node.height] = 0;
-    //}
+    if (node.depth === 1) {
+      handleRootChild(node);
+    }
+
+    if (node.depth > 1) {
+      handleChild(node);
+    }
+
+    console.groupEnd();
     return [node.x, node.y];
   }
 };
