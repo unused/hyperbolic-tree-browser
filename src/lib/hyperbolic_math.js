@@ -90,6 +90,7 @@ const angleToComplex = alpha => math.complex(Math.sin(alpha), Math.cos(alpha));
  * NUMBER, done by the e^ia These functions can be implemented using cos, sin
  * and arc tangent and a complex number constructors and selector instead.
  **/
+var i = 0;
 const calculateWedge = node => {
   const wedge = node.parent ? node.parent.wedge : rootWedge;
 
@@ -97,20 +98,42 @@ const calculateWedge = node => {
     return wedge;
   }
   const s = 0.28;
+  i = i + 1;
   
   const p     = wedge.p;
   const m     = wedge.m;
   const theta = math.complex.one;
-
-  const alpha = wedge.alpha / node.children.length;
+  
+  var siblings = 1;
+  if(node.depth > 0) {
+    siblings = node.parent.children.length;
+  }
+  var alpha = wedge.alpha / siblings * i;
+  
+  //var alpha = node.wedge.alpha;
+  if(node.depth === 1) {
+    alpha = alpha;
+  } else if (node.depth === 2) {
+    alpha = alpha ;//+ (node.parent.wedge.alpha / 2);
+    
+  } else if (node.depth === 3) {
+    alpha = alpha ;//+ node.parent.wedge.alpha/2 ;//+ node.parent.parent.wedge.alpha/2;
+    
+  }
+  
+  
+  //console.debug('parent...', node.parent.children.length);
+  if(node.depth > 0 && i === node.parent.children.length) {
+    i = 0;
+  }
 
   const distance = subwedgeDistance(s, alpha);
   if(distance < s) {
     distance = s;
   }
   
-  //console.debug('  ... d debug', distance);
-  //console.debug('  ... a debug', alpha);
+  console.debug('  ... n debug', node.children.length);
+  console.debug('  ... a debug', alpha);
 
   let subwedge = {}
 
@@ -156,8 +179,22 @@ export default {
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
     console.debug('  - z', node.z);
     
-    let x = node.z.im * math.sin(node.wedge.alpha * (Math.PI / 2));
-    let y = node.z.im * math.cos(node.wedge.alpha * (Math.PI / 2));
+    let x = node.z.im;
+    let y = node.z.im;
+    var alpha = node.wedge.alpha;
+    if(node.depth === 1) {
+      alpha = alpha;
+    } else if (node.depth === 2) {
+      alpha = alpha //+ (node.parent.wedge.alpha / 2);
+      
+    } else if (node.depth === 3) {
+      alpha = alpha //+ node.parent.wedge.alpha/2 + node.parent.parent.wedge.alpha/2;
+      
+    }
+    
+    x = node.z.im * math.sin(alpha * (Math.PI / 2) );
+    y = node.z.im * math.cos(alpha * (Math.PI / 2) );
+    console.log(' - r alpha', alpha);
     node.x = x;
     node.y = y;
     
