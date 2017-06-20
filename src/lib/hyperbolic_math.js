@@ -37,7 +37,7 @@ const transform = (z, p, theta) => {
 };
 
 /**
- * TODO: Inverse transform...
+ * Inverse transformation.
  **/
 const inverseTransform = (p, theta) => {
   return [math.multiply(theta.conjugate(), p).neg(), theta.conjugate()];
@@ -92,54 +92,45 @@ const angleToComplex = alpha => math.complex(Math.sin(alpha), Math.cos(alpha));
  **/
 var i = 0;
 const calculateWedge = node => {
+  const s = 0.28;
   const wedge = node.parent ? node.parent.wedge : rootWedge;
 
   if (!node.children) {
     return wedge;
   }
+
   const s = 0.28;
   i = i + 1;
-  
+
   const p     = wedge.p;
   const m     = wedge.m;
   const theta = math.complex.one;
-  
+
   var siblings = 1;
   if(node.depth > 0) {
     siblings = node.parent.children.length;
   }
   var alpha = wedge.alpha / siblings * i;
-  
+
   //var alpha = node.wedge.alpha;
   if(node.depth === 1) {
     alpha = alpha;
   } else if (node.depth === 2) {
     alpha = alpha ;//+ (node.parent.wedge.alpha / 2);
-    
   } else if (node.depth === 3) {
     alpha = alpha ;//+ node.parent.wedge.alpha/2 ;//+ node.parent.parent.wedge.alpha/2;
-    
+
   }
-  
-  
-  //console.debug('parent...', node.parent.children.length);
+
   if(node.depth > 0 && i === node.parent.children.length) {
     i = 0;
   }
 
   const distance = subwedgeDistance(s, alpha);
-  if(distance < s) {
-    distance = s;
-  }
-  
-  console.debug('  ... n debug', node.children.length);
-  console.debug('  ... a debug', alpha);
 
   let subwedge = {}
 
-  console.debug('p debug', math.multiply(distance, m), p, theta);
   subwedge.p = transform(math.multiply(m, distance), p, theta);
-  console.debug('  ... p debug', subwedge.p);
   subwedge.m = transform(transform(m, p, theta), subwedge.p.neg(), theta);
 
   const neg_d    = math.complex(-distance, 0);
@@ -163,6 +154,8 @@ const calculateWedge = node => {
  * @see The Hyperbolic Browser: A Focus + Context Technique for Visualizing
  *   Large Hierarchies, Lamping and Rao 1996
  **/
+let rotations = {
+};
 export default {
   transform:        transform,
   inverseTransform: inverseTransform,
@@ -173,12 +166,11 @@ export default {
    * calculations of wedges and subwedges.
    **/
   hyperbolicPoint: node => {
-    console.debug('** hyperbolicPoint **', node);
+    console.debug('** hyperbolicPoint **', node.data.name); //, node);
     node.wedge = calculateWedge(node);
-    console.debug('  - wedge', node.wedge);
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
     console.debug('  - z', node.z);
-    
+
     let x = node.z.im;
     let y = node.z.im;
     var alpha = node.wedge.alpha;
@@ -186,19 +178,35 @@ export default {
       alpha = alpha;
     } else if (node.depth === 2) {
       alpha = alpha //+ (node.parent.wedge.alpha / 2);
-      
     } else if (node.depth === 3) {
       alpha = alpha //+ node.parent.wedge.alpha/2 + node.parent.parent.wedge.alpha/2;
-      
     }
-    
     x = node.z.im * math.sin(alpha * (Math.PI / 2) );
     y = node.z.im * math.cos(alpha * (Math.PI / 2) );
     console.log(' - r alpha', alpha);
     node.x = x;
     node.y = y;
-    
+
     console.debug('  - result', x, y);
     return [x, y];
+
+    console.debug('  ... wedge', node.wedge);
+    console.debug('  ... z', node.z);
+
+    let x = node.x;
+    let y = node.y;
+    const x_y = [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];
+    node.x = x_y[0] * node.z.im;
+    node.y = x_y[1] * node.z.im;
+
+    //node.x = node.z.re;
+    //node.y = node.z.im;
+
+    //if (rotations[node.height]) {
+      //rotations[node.height] += node.z.im;
+    //} else {
+      //rotations[node.height] = 0;
+    //}
+    return [node.x, node.y];
   }
 };
