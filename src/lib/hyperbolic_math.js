@@ -117,30 +117,51 @@ const calculateWedge = node => {
   return subwedge;
 };
 
-const calculateAlpha = node => {
-  return node.wedge.alpha;
+const childIndexByWedge = children => {
+  return children.reduce((acc, n) => acc + (n.wedge ? 0 : 1), 0);
 };
 
+/**
+ * Root node is always centered at 0, 0
+ **/
 const handleRootNode = node => {
   node.x = 0;
   node.y = 0;
 };
 
+/**
+ * Layout of first generation nodes.
+ *
+ * Pj = [R * cos(Oj + oj/2), R * sin(Oj + oj/2)]
+ *
+ * From the centering root node the root children are circle centered in radius
+ * R, separated by distance alpha of root node and half of own alpha (child
+ * distance).
+ **/
 const handleRootChild = node => {
-  const alpha = node.parent.wedge.alpha;
-  const childIndex = node.parent.children.reduce((acc, n) => {
-    return acc + (n.wedge ? 0 : 1);
-  }, 0);
+  const childIndex = childIndexByWedge(node.parent.children);
 
-  node.x = node.z.im * (Math.sin(alpha * childIndex) * Math.PI / 2);
-  node.y = node.z.im * (Math.cos(alpha * childIndex) * Math.PI / 2);
-  //node.x = node.z.re;
-  //node.y = node.z.im;
+  node.omega = node.parent.wedge.alpha * childIndex;
+  node.alpha = node.omega + node.wedge.alpha / 2;
+
+  node.x = node.z.im * (Math.cos(node.alpha) * Math.PI / 2);
+  node.y = node.z.im * (Math.sin(node.alpha) * Math.PI / 2);
 };
 
+/**
+ * For all children of root children we proceed with similar manner, but share
+ * the angle inbetween the subwedges.
+ **/
 const handleChild = node => {
-  node.x = 0;
-  node.y = Math.PI;
+  const childIndex = childIndexByWedge(node.parent.children);
+
+  node.omega = node.parent.omega - node.parent.alpha / 2;
+  node.alpha = node.omega + node.parent.wedge.alpha * childIndex;
+
+  node.alpha = node.parent.alpha; // straight line
+
+  node.x = node.z.im * (Math.cos(node.alpha) * Math.PI / 2);
+  node.y = node.z.im * (Math.sin(node.alpha) * Math.PI / 2);
 };
 
 /**
@@ -173,11 +194,6 @@ export default {
     node.wedge = calculateWedge(node);
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
 
-    console.debug('  ... wedge', node.wedge);
-    console.debug('  ... z',     node.z);
-    console.debug(' ... alpha',  node.wedge.alpha);
-
-
     // return root node
     if (node.depth === 0) {
       handleRootNode(node);
@@ -190,6 +206,11 @@ export default {
     if (node.depth > 1) {
       handleChild(node);
     }
+
+    console.debug('  z', node.z);
+    console.debug('  parent/alpha %s/%s', node.wedge.alpha, node.alpha);
+    console.debug('  x, y %s, %s', node.x, node.y);
+    console.debug(node);
 
     console.groupEnd();
     return [node.x, node.y];
