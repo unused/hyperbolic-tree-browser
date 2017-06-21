@@ -26,12 +26,14 @@ class HyperbolicTree {
   }
 
   draw(data) {
+    console.time('HyperbolicTree::draw');
     const root = treemap(d3.hierarchy(data));
 
     this.center();
     this.prepareNodes(root);
     this.drawEdges(root);
     this.drawNodes(root);
+    console.timeEnd('HyperbolicTree::draw');
   }
 
   center() {

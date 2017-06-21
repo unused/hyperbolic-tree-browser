@@ -139,6 +139,8 @@ const handleRootNode = node => {
  * distance).
  **/
 const handleRootChild = node => {
+  //node.x = 0; node.y = node.z.im * 2; return ; // No rotation(!)
+
   const childIndex = childIndexByWedge(node.parent.children);
 
   node.omega = node.parent.wedge.alpha * childIndex;
@@ -153,6 +155,8 @@ const handleRootChild = node => {
  * the angle inbetween the subwedges.
  **/
 const handleChild = node => {
+  //node.x = 0; node.y = node.z.im * 2; return ; // No rotation(!)
+
   const childIndex = childIndexByWedge(node.parent.children);
 
   node.omega = node.parent.omega - node.parent.alpha / 2;
