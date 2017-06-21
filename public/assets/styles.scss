@@ -3,8 +3,13 @@ $node: Chocolate;
 $leaf: DarkSlateGray;
 $link: CadetBlue;
 
+$opacity: .75;
+
 .hyperbolic-tree {
   .node {
+    cursor: pointer;
+    user-select: none;
+
     circle {
       fill: $node;
     }
@@ -14,15 +19,15 @@ $link: CadetBlue;
     }
 
     text {
-      font:    .75rem sans-serif;
-      opacity: .6;
+      font: 1.25rem sans-serif;
+      opacity: $opacity;
     }
   }
 
   .edge {
     fill: none;
     stroke: $link;
-    stroke-opacity: .5;
-    stroke-width: .125rem;
+    stroke-opacity: $opacity;
+    stroke-width:   .125rem;
   }
 }

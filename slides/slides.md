@@ -1,21 +1,65 @@
 ---
 author:
-- D. Bramreiter, M. Ebner, P. Leitner, C. Lipautz
+- D. Bramreiter, M. Ebner, ~~P. Leitner~~, C. Lipautz
 title: Hyperbolic Tree Browser using D3.js v4.x
 subtitle: INFOVIS - Group 1, SS 2017
 institute: Graz University of Technology
-
 ---
 
 ## Presentation Overview
 
-- JSON Tree and D3.hierarchy
-- Radial Tide Tree Demo in D3
-- Goals and Current State
+- Hyperbolic Tree Browser
+- Implementation using D3.js v4
+- Project Demonstration
 
+## Hyperbolic Tree Browser
 
-## JSON Tree and D3.Hierarchy
+Visualize large hierarchical data to support focus + context principle.\footnote{Chapter 5.3.3 Hyperbolic Browser in Course Notes}
+
+## Hyperbolic Tree Browser Example
+
+\small
+![Hyperbolic Tree Example]
+
+\tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
+
+## Hyperbolic Tree Browser Construction: Distance
+
+\small
+![Hyperbolic Tree Construction]
+
+\tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
+
+## Hyperbolic Tree Browser Construction: Rotation
+
+- Root is at center.
+- Root children have sections of same size around center.
+- Other children have sections of same size inside wedge.
+
+## Data-Driven Documents with D3.js v4
+
 ```javascript
+svg.append("g")
+  .selectAll("circle")
+  .data(data)
+    .enter(/* handle new data */)
+    .update(/* handle changes */)
+    .exit(/* handle data removal */);
+```
+
+## D3.js v4 Support for Hyperbolic Browser Tree Implementation
+
+  - D3.js hierarchical data
+    - attributes: `node.data.name`, `node.depth`
+    - relations: `node.parent`, `node.children`
+
+  - D3.js document data
+    - `enter()`
+    - `.on('dblclick', function(d){ //...`
+
+## Data structure and D3.Hierarchy
+
+```json
 {
     "name": "UCI",
     "children": [
@@ -28,64 +72,19 @@ institute: Graz University of Technology
                 {
                   "name": "Astana Pro Cycling Team"
                 },
-                {
-                  "name": "Bahrain Merida PRo Cycling Team"
-                },
-                {
-                  "name": "BMC Racing Team"
-                },
-                {
-                  "name": "Bora - Hansgrohe"
-                }
-            ]
-        }
-    ]
-}
+
+                // ...
 ```
 
+## Using D3.js v4 to Construct Hypertree
 
-## Radial Tide Tree in D3
+- Prepare hierarchical data (provide stratify callback if adaption needed).
+- Provide data to D3.js and set enter handler to transform calculations.
+- D3.js proceeds from root node through children. Wedge and rotation
+  information are stored to nodes.
 
-\small
-![Radial Tide Tree in D3]
-
-\tiny Adapted from https://bl.ocks.org/mbostock/4063550
-
-
-## Hyperbolic Layout
-\small
-![Hypertree Default]
-
-\tiny Source: Mathematics and Algorithms for the Hyperbolic Tree Visualization (Benjamin Berge, Christophe Bouthier)
-
-## Hyperbolic Dragging
-\small
-![Hypertree Drag]
-
-\tiny Source: Mathematics and Algorithms for the Hyperbolic Tree Visualization (Benjamin Berge, Christophe Bouthier)
-
-## Next Steps
-- Contact other group to sync 'import data'
-- Convert to Poincaré disc model
-- Add dragging for browsing the hyperbolic tree layout
-
-
-## Usage and Goals
-
-- Minimal Dependencies <!-- to JavaScript packages -->
-- Follow D3 (v4.9.1) Guidelines
-- No General Styles; No Hard Bound Styles <!-- no generic rules, no id rules -->
-- A11y in Mind <!-- implement what learned in survey -->
-
-## Current State
-
-- Complete setup for Jest testing environment.
-- Implement algorithm in object-oriented JavaScript converting to Poincaré disk model.
-- Use D3.js to update data and animate view.
-- Write ongoing documentation.
+# Project Demonstration
 
 [Hyperbolic Tree Example]: images/basic_tree.png
-[Radial Tide Tree in D3]: images/ivis_graph_disc_tree002.png
-[Hypertree Default]: images/hypertree001.png
-[Hypertree Drag]: images/hypertree002.png
+[Hyperbolic Tree Construction]: images/tree_construction.png
 

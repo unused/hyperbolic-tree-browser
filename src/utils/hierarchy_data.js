@@ -3,12 +3,13 @@ import * as d3 from 'd3';
 /**
  * Import hierarchical data by type and resource.
  *
- * Construct with any support type of json, ..., ... or ..., retrieving data
+ * Construct with any support type of json, tree-ml or scos, retrieving data
  * from remote using `fetch`, reading using `load` or direct upload using
  * `upload`.
  *
  * Usage:
  *   (new HierarchyData('json')).fetch('https://example.com/data.json');
+ *   (new HierarchyData('scos')).fetch('https://example.com/data.scos');
  *   (new HierarchyData('json')).load(<json string>);
  *   (new HierarchyData('json')).upload();
  **/

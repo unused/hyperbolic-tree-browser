@@ -29,42 +29,48 @@ class HyperbolicTree {
     const root = treemap(d3.hierarchy(data));
 
     this.center();
-    this.drawNodes(root);
+    this.prepareNodes(root);
     this.drawEdges(root);
+    this.drawNodes(root);
   }
 
   center() {
     this.group.attr('transform', `translate(${RADIUS},${RADIUS})`);
   }
 
-  drawEdges(root) {
-    this.group.selectAll('.edge')
-    .data(root.links())
-    .enter().append('line')
-      .attr('class', 'edge')
-      .attr('x1', d => d.source.x * RADIUS)
-      .attr('y1', d => d.source.y * RADIUS)
-      .attr('x2', d => d.target.x * RADIUS)
-      .attr('y2', d => d.target.y * RADIUS);
-  }
-
-  drawNodes(root) {
-    const node = this.group.selectAll('.node')
+  prepareNodes(root) {
+    this.group.selectAll('.node')
       .data(root.descendants())
       .enter().append('g')
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
+        .attr('aria-label', d => d.text)
+        .attr('tabindex', 0)
         .attr('transform', node => {
           const unit = math.hyperbolicPoint(node);
-          //return `translate(${unit})`;
-          return `translate(${unit[0] * RADIUS} ${unit[1] * RADIUS})`;
+          const radius = RADIUS - 200;
+          return `translate(${unit[0] * radius} ${unit[1] * radius})`;
         });
+  }
 
-    node.append('circle')
-      .attr('r', 5);
+  drawEdges(root) {
+    this.group.selectAll('.edge')
+      .data(root.links())
+      .enter().append('line')
+        .attr('class', 'edge')
+        .attr('x1', d => d.source.x * (RADIUS - 215))
+        .attr('y1', d => d.source.y * (RADIUS - 215))
+        .attr('x2', d => d.target.x * (RADIUS - 215))
+        .attr('y2', d => d.target.y * (RADIUS - 215));
+  }
 
-    node.append('text')
-      .attr('dy', '0.3em')
-      .attr('x', d => d.x < Math.PI === !d.children ? 8 : -8)
+  drawNodes(root) {
+    const nodes = this.group.selectAll('.node')
+    nodes.append('circle')
+      .attr('r', 10);
+
+    nodes.append('text')
+      .attr('dy', '0.3rem')
+      .attr('x', d => d.x < Math.PI === !d.children ? 15 : -15)
       .attr('text-anchor', d => d.x < Math.PI === !d.children ? 'start' : 'end')
       .attr('transform', math.textRotation)
       .text(d => d.data.name);
