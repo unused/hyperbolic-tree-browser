@@ -1,0 +1,28 @@
+
+$node: Chocolate;
+$leaf: DarkSlateGray;
+$link: CadetBlue;
+
+.hyperbolic-tree {
+  .node {
+    circle {
+      fill: $node;
+    }
+
+    &.leaf circle {
+      fill: $leaf;
+    }
+
+    text {
+      font:    .75rem sans-serif;
+      opacity: .6;
+    }
+  }
+
+  .edge {
+    fill: none;
+    stroke: $link;
+    stroke-opacity: .5;
+    stroke-width: .125rem;
+  }
+}
