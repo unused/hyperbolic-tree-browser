@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 /**
  * Import hierarchical data by type and resource.
  *
- * Construct with any support type of json, tree-ml or scos, retrieving data
+ * Construct with any support type of json, skos, or xml, retrieving data
  * from remote using `fetch`, reading using `load` or direct upload using
  * `upload`.
  *
