@@ -44,7 +44,6 @@ class RadialTreeBrowser {
       .data(root.links())
       .enter().append('path')
         .attr('class', 'edge')
-        //.attr('d', d3.linkRadial().angle(d => d.x).radius(d => d.y))
         .attr('x1', d => d.source.x)
         .attr('y1', d => d.source.y)
         .attr('x2', d => d.target.x)
@@ -63,11 +62,19 @@ class RadialTreeBrowser {
     nodes.append('circle')
       .attr('r', 10);
 
+    const hideTextAtBorder = d => {
+      if (d.x - BOX_SIZE / 6 < 0) return 0.0;
+      if (d.y - BOX_SIZE / 6 < 0) return 0.0;
+      if (d.x + BOX_SIZE / 6 > BOX_SIZE) return 0.0;
+      if (d.y + BOX_SIZE / 6 > BOX_SIZE) return 0.0;
+      return 1.0;
+    };
     nodes.append('text')
       .attr('dy', '0.3rem')
       .attr('x', d => (d.x > BOX_SIZE / 2) ? 15 : -15)
       .attr('text-anchor', d => (d.x > BOX_SIZE / 2) ? 'start' : 'end')
       .attr('transform', d => `rotate(${(d.x > BOX_SIZE / 2) ? 0 : 180})`)
+      .attr('opacity', hideTextAtBorder)
       .text(d => d.name);
   }
 

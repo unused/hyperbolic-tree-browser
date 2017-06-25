@@ -15,7 +15,7 @@ class HyperTreeDrawNode {
     this._ze = new HyperTreeCoordE(this.ze);
     this._zr = new HyperTreeCoordE(this.zr);
 
-    this.node.zs = new HyperTreeCoordS();
+    this.zs = new HyperTreeCoordS();
   }
 
   get name() {
@@ -23,11 +23,11 @@ class HyperTreeDrawNode {
   }
 
   screenCoordinates() {
-    return this.node.zs;
+    return this.zs;
   }
 
   refreshScreenCoordinates(sOrigin, sMax) {
-    this.node.zs.projectionEtoS(this.ze, sOrigin, sMax), this.debug;
+    this.zs.projectionEtoS(this.ze, sOrigin, sMax), this.debug;
   }
 
   drawNodes() {
@@ -35,7 +35,7 @@ class HyperTreeDrawNode {
                 + ((this.zr.y - this.ze.y) * (this.zr.y - this.ze.y));
     const coeff = Math.sqrt(dist) / this.model.radius;
 
-    this.model.drawNode(this.node, this.node.zs, coeff);
+    this.model.drawNode(this.node, this.zs, coeff);
   }
 
   translate(t) {
@@ -49,11 +49,11 @@ class HyperTreeDrawNode {
   }
 
   debug() {
-    console.group('draw node %s', this.node.name);
+    console.group('draw node %s', this.name);
     console.debug('  %f : %f', this.ze.x, this.ze.y);
-    console.debug('  %f : %f', this.node.zs.x, this.node.zs.y);
+    console.debug('  %f : %f', this.zs.x, this.zs.y);
     console.debug('  %f : %f', this.zr.x, this.zr.y);
-    console.groupEnd('draw node %s', this.node.name);
+    console.groupEnd('draw node %s', this.name);
   }
 }
 

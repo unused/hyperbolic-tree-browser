@@ -6,13 +6,13 @@ import HyperTreeNodeComposite from './hypertree_node_composite';
  **/
 class HyperTreeModel {
   constructor(node) {
-    this.node = ((node.children || []).length === 0)
+    node = ((node.children || []).length === 0)
       ?  new HyperTreeNode(node, this)
       :  new HyperTreeNodeComposite(node, this);
+    this.node = node;
   }
 
   layoutHyperbolicTree() {
-console.debug('layoutHyperbolicTree', this.node);
     this.node.layout(0.0, 2 * Math.PI);
   }
 

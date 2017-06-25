@@ -20,7 +20,7 @@ class HyperTreeDrawNodeComposite extends HyperTreeDrawNode {
     console.groupCollapsed('draw nodes for %s', this.node.name);
     this.children.forEach(child => {
       child.refreshScreenCoordinates(sOrigin, sMax);
-      child.drawNodes();
+      child.drawNodes(sOrigin, sMax);
     });
     console.groupEnd('draw nodes for %s', this.node.name);
     return super.drawNodes();
