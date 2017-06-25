@@ -9,7 +9,7 @@ const treemap = d3.tree()
   .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
 /**
- * A hyperbolic tree visualization.
+ * A hyperbolic tree visualization (deprecated).
  *
  * Usate:
  *   const hyperbolicTree = new HyperbolicTree(<selector>);
@@ -17,6 +17,8 @@ const treemap = d3.tree()
  **/
 class HyperbolicTree {
   constructor(selector) {
+    console.error('this implementation was replaced by radial tree browser');
+
     this.svg   = d3.select(selector);
     this.group = this.svg.append('g');
 

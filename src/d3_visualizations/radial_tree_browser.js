@@ -1,12 +1,10 @@
 import * as d3 from 'd3';
 
-import math from './../utils/radial_math';
-
 const BOX_SIZE = 1000;
 const RADIUS   =  500;
 
 /**
- * A radial tree visualization.
+ * A radial tree browser visualization.
  *
  * Usate:
  *   const radialTreeBrowser = new radialTreeBrowser(<selector>);
