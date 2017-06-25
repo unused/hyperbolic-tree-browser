@@ -39,8 +39,10 @@ class HyperTreeDrawNode {
   }
 
   translate(t) {
+    console.debug('ze', this.ze);
     this.ze.translate(this._ze, t);
     this.zr.translate(this._zr, t);
+    console.debug('ze', this.ze);
   }
 
   endTranslation() {

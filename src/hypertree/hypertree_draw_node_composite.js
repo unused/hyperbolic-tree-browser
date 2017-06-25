@@ -27,13 +27,13 @@ class HyperTreeDrawNodeComposite extends HyperTreeDrawNode {
   }
 
   translate(t) {
-    this.children.forEach(child => child.translate(t));
     super.translate(t);
+    this.children.forEach(child => child.translate(t));
   }
 
   endTranslation() {
-    this.children.forEach(child => child.endTranslation());
     super.endTranslation();
+    this.children.forEach(child => child.endTranslation());
   }
 }
 

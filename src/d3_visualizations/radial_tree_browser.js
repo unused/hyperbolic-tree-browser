@@ -25,6 +25,7 @@ class RadialTreeBrowser {
   }
 
   draw(root, view) {
+    this.root = root;
     this.view = view;
 
     // TODO fix parent issue... is not at center
@@ -35,16 +36,17 @@ class RadialTreeBrowser {
   }
 
   update(root) {
-    d3.select(this.selector).transition()
-      .selectAll('.node').data(root.descendants());
+    this.group.selectAll('.edge').remove();
+    this.group.selectAll('.node').remove();
+    this.drawNodes(this.root);
   }
 
   drawEdges(root) {
     this.group.selectAll('.edge')
       .data(root.links())
-      .enter().append('path')
+      .enter().append('line')
         .attr('class', 'edge')
-        .attr('x1', d => d.source.x)
+        .attr('x1', d => { console.debug('drawEdges', d); return d.source.x; })
         .attr('y1', d => d.source.y)
         .attr('x2', d => d.target.x)
         .attr('y2', d => d.target.y);
@@ -57,10 +59,14 @@ class RadialTreeBrowser {
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
         .attr('aria-label', d => d.text)
         .attr('tabindex', 0)
-        .attr('transform', d => `translate(${d.x} ${d.y})`);
+        .attr('transform', d => `translate(${d.x} ${d.y})`)
+        .on('click', e => {
+          this.update(this.view.actions.onClick(e));
+        });
 
     nodes.append('circle')
-      .attr('r', 10);
+      .attr('r', 10)
+      .call(this.dragHandler.bind(this));
 
     // TODO use a radius ;)
     const hideTextAtBorder = d => {
@@ -79,10 +85,15 @@ class RadialTreeBrowser {
       .text(d => d.name);
   }
 
-  handleClick(event) {
-  }
+  dragHandler() {
+    if (!this.view) {
+      return ;
+    }
 
-  handleCollapse(event) {
+    return d3.drag()
+      .on('start', this.view.actions.startDrag)
+      .on('drag',  this.view.actions.onDrag)
+      .on('end',   this.view.actions.endDrag);
   }
 }
 

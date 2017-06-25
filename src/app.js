@@ -8,7 +8,7 @@ const treemap = d3.tree()
   .size([2 * Math.PI, 500]);
 
 (new HierarchyData('json'))
-  .fetch('/assets/data/simple.json')
+  .fetch('/assets/data/d3.json')
   .then(data => treemap(d3.hierarchy(data)))
   .then(root => {
     let tree;

@@ -71,7 +71,7 @@ class HyperTreeCoordE {
 
     // first the denominator
     const denX = (this.x * t.x) + (this.y * t.y) + 1;
-    const denY = (this.y * t.x) - (this.x * t.y) ;
+    const denY = (this.y * t.x) - (this.x * t.y);
     const dd   = (denX * denX) + (denY * denY);
 
     // and the numerator
@@ -89,7 +89,8 @@ class HyperTreeCoordE {
    */
   translate(s, t) {
     if (!t) {
-      return this.translatePoint(s);
+      this.translatePoint(s);
+      return ;
     }
 
     this.copy(s);
