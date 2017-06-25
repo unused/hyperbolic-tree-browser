@@ -60,6 +60,7 @@ class RadialTreeBrowser {
     nodes.append('circle')
       .attr('r', 10);
 
+    // TODO use a radius ;)
     const hideTextAtBorder = d => {
       if (d.x - BOX_SIZE / 6 < 0) return 0.0;
       if (d.y - BOX_SIZE / 6 < 0) return 0.0;

@@ -16,16 +16,16 @@ class HyperTreeNodeComposite extends HyperTreeNode {
     });
   }
 
+  get globalWeight() {
+    return this.children.reduce((acc, child) => acc += child.weight, 0);
+  }
+
   get children() {
     return this.node.children;
   }
 
   get isLeaf() {
     return false;
-  }
-
-  get globalWeight() {
-    return this.children.reduce((acc, cur) => acc += cur.weight, 0);
   }
 
   /**
@@ -37,10 +37,9 @@ class HyperTreeNodeComposite extends HyperTreeNode {
     console.debug('  subwedge with angle %f and width %f', angle, width);
 
     super.layout(angle, width);
-    const globalWeight = this.globalWeight;
 
     // Only the root node can have a width > PI
-    if ((!this.parent) && (width > Math.PI)) {
+    if (this.parent && (width > Math.PI)) {
       width = Math.PI;
     }
 
@@ -51,8 +50,8 @@ class HyperTreeNodeComposite extends HyperTreeNode {
       const childWidth = width * percent;
       const childAngle = startAngle + (childWidth / 2);
 
-      startAngle += childWidth;
       child.layout(childAngle, childWidth);
+      startAngle += childWidth;
       return child;
     });
     console.debug('after children layout', this.children);
