@@ -11,9 +11,8 @@ const treemap = d3.tree()
   .fetch('/assets/data/simple.json')
   .then(data => treemap(d3.hierarchy(data)))
   .then(root => {
-    const tree = new HyperTree(root);
-    tree.build();
-    tree.view.draw();
-    new RadialTreeBrowser('svg').draw(root);
+    let tree;
+    (tree = new HyperTree(root).build()).view.draw();
+    new RadialTreeBrowser('svg').draw(tree.root, tree.view);
   });
 

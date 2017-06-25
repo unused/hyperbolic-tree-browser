@@ -24,7 +24,9 @@ class RadialTreeBrowser {
     this.group.attr('class', 'radial-tree-browser');
   }
 
-  draw(root) {
+  draw(root, view) {
+    this.view = view;
+
     // TODO fix parent issue... is not at center
     root.x = BOX_SIZE / 2, root.y = root.x;
 
