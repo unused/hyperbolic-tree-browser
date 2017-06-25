@@ -1,9 +1,8 @@
 import * as d3 from 'd3';
 import math from './../lib/hyperbolic_math.js';
-import rmath from './../lib/radial_math.js';
 
 const BOX_SIZE = 1000;
-const RADIUS   = BOX_SIZE / 2;
+const RADIUS   =  500;
 
 const treemap = d3.tree()
   .size([2 * Math.PI, RADIUS])
@@ -46,9 +45,11 @@ class HyperbolicTree {
         .attr('aria-label', d => d.text)
         .attr('tabindex', 0)
         .attr('transform', node => {
-          const unit = math.hyperbolicPoint(node);
-          const radius = RADIUS - 200;
-          return `translate(${unit[0] * radius} ${unit[1] * radius})`;
+          //const unit = math.hyperbolicPoint(node);
+          //return `translate(${unit[0]} ${unit[1]})`;
+          const layout = math.layoutHyperbolic(node);
+          console.debug(layout);
+          return `translate(${layout.x} ${layout.y})`;
         });
   }
 

@@ -67,9 +67,9 @@ const subwedgeDistance = (s, alpha) => {
 };
 
 /**
- * Converstion from angle to complex number.
+ * Conversion from angle to complex number.
  **/
-const angleToComplex = alpha => math.complex(Math.sin(alpha), Math.cos(alpha));
+const angleToComplex = alpha => math.complex(Math.cos(alpha), Math.sin(alpha));
 
 /**
  *
@@ -155,10 +155,11 @@ const handleRootChild = node => {
 const handleChild = node => {
   const childIndex = childIndexByWedge(node.parent.children);
 
-  node.omega = node.parent.omega - node.parent.alpha / 2;
-  node.alpha = node.omega + node.parent.wedge.alpha * childIndex;
+  node.omega = node.parent.omega; // - node.parent.alpha;
+  node.alpha = node.omega + node.parent.wedge.alpha * childIndex
+    - (node.parent.alpha * 2);
 
-  node.alpha = node.parent.alpha; // straight line
+  return node.alpha = node.parent.alpha; // use straight line for now...
 
   node.x = node.z.im * (Math.cos(node.alpha) * Math.PI / 2);
   node.y = node.z.im * (Math.sin(node.alpha) * Math.PI / 2);
@@ -214,5 +215,68 @@ export default {
 
     console.groupEnd();
     return [node.x, node.y];
+  },
+
+  /**
+   * Hyperbolic layout
+   **/
+  layoutHyperbolic: function(node) {
+    const wedgeTranslate = function(w, p) {
+        const zAlpha = math.complex(Math.cos(w.alpha), Math.sin(w.alpha));
+        w.alpha = transform(zAlpha, p, math.complex.one);
+        const zOmega = math.complex(Math.cos(w.omega), Math.sin(w.omega));
+        w.omega = transform(zOmega, p, math.complex.one);
+    };
+    const piize = alpha => {
+      if (alpha < 0) return alpha + 2 * Math.PI;
+      if (alpha > 2 * Math.PI) return alpha - 2 * Math.PI;
+      return alpha;
+    };
+
+    const startAngle    = 0.5 * Math.PI;
+    const defAngleWidth = 1.98 * Math.PI;
+
+    const layoutNode = (n, wedge, length) => {
+      let angleWidth;
+
+      if (n.parent) {
+        angleWidth = piize(wedge.omega - wedge.alpha);
+        const bisectionAngle = wedge.alpha + (angleWidth / 2.0);
+        n.z = angleToComplex(bisectionAngle);
+        n.z = math.complex(n.z.re * length, n.z.im * length);
+        n.z = transform(n.z, n.parent.z, math.complex.one);
+        wedgeTranslate(wedge, n.parent.z);
+        wedgeTranslate(wedge, n.z.neg());
+      }
+
+      angleWidth = piize(wedge.omega - wedge.alpha);
+
+      if (angleWidth > defAngleWidth) {
+        const anglediff = angleWidth - defAngleWidth;
+
+        wedge.alpha += anglediff / 2.0;
+        wedge.alpha  = piize(wedge.alpha);
+        wedge.omega -= anglediff / 2.0;
+        wedge.omega  = piize(wedge.omega);
+
+        angleWidth = defAngleWidth;
+      }
+
+      let currentAngle = wedge.alpha;
+      for (const c of n.children || []) {
+        const alpha = currentAngle;
+        currentAngle += angleWidth * (n.weigth || 1 / n.children.length);
+        const omega = piize(currentAngle);
+        layoutNode(c, { alpha, omega }, length);
+      }
+      return n;
+    }
+
+    let wedge = {
+      alpha: piize(startAngle - defAngleWidth / 2.0),
+      omega: piize(startAngle + defAngleWidth / 2.0)
+    };
+    node.z = math.complex(0, 0);
+    return layoutNode(node, wedge, .42);
   }
 };
