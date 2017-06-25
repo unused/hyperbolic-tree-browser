@@ -5,7 +5,7 @@ $link: CadetBlue;
 
 $opacity: .75;
 
-.hyperbolic-tree {
+.radial-tree-browser {
   .node {
     cursor: pointer;
     user-select: none;
@@ -20,7 +20,6 @@ $opacity: .75;
 
     text {
       font: 1.25rem sans-serif;
-      opacity: $opacity;
     }
   }
 
