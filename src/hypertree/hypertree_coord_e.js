@@ -39,15 +39,14 @@ class HyperTreeCoordE {
     const ex = (x - model.sOrigin.x) / model.sMax.x;
     const ey = (y - model.sOrigin.y) / model.sMax.y;
 
-    if (((ex * ex) + (ey * ey)) >= 1.0) {
-      this.valid = false;
-      retun ;
+    if (((ex * ex) + (ey * ey)) < 1.0) {
+      this.x = ex;
+      this.y = ey;
+
+      this.valid = true;
+      return ;
     }
-
-    this.x = ex;
-    this.y = ey;
-
-    this.valid = true;
+    this.valid = false;
   }
 
   /**

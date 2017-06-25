@@ -99,6 +99,6 @@ describe('hyperbolic point', () => {
       data: { name: 'one' }, depth: 1, parent: parentNode
     });
 
-    expect(result).toEqual([0.4398229715025711, 7.181703923228016e-17]);
+    expect(result).toEqual([-0.43957431050874735, -0.014787555650302632]);
   });
 });
