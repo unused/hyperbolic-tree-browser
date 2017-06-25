@@ -1,4 +1,9 @@
 
+/**
+ * Demonstrational radial math implementation.
+ *
+ * @see https://bl.ocks.org/mbostock/4063550
+ **/
 export default {
   radialPoint: (x, y) => {
     return [(y = +y) * Math.cos(x -= Math.PI / 2), y * Math.sin(x)];

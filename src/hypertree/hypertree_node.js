@@ -42,6 +42,7 @@ class HyperTreeNode {
    **/
   layout(angle, width) {
     console.debug('layout', angle, width);
+
     if (!this.parent) {
       this.node.zr.x = this.model.radius;
       this.node.zr.y = 0.0;
@@ -50,10 +51,7 @@ class HyperTreeNode {
     }
 
     console.groupCollapsed('layout for %s', this.name);
-
-    console.debug(
-      this.model.length, angle
-    );
+    console.debug(this.model.length, angle);
 
     // We first start as if the parent was the origin. We still are in the
     // hyperbolic space.
@@ -74,6 +72,7 @@ class HyperTreeNode {
     this.node.zr.translate(this.parent.z);
 
     this.node.z.debug(); this.node.zr.debug();
+    console.debug(this.weight);
     console.groupEnd('layout for %s', this.name);
   }
 }

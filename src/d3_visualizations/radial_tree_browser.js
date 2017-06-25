@@ -1,12 +1,10 @@
 import * as d3 from 'd3';
 
-import math from './../utils/radial_math';
-
 const BOX_SIZE = 1000;
 const RADIUS   =  500;
 
 /**
- * A radial tree visualization.
+ * A radial tree browser visualization.
  *
  * Usate:
  *   const radialTreeBrowser = new radialTreeBrowser(<selector>);
@@ -62,6 +60,7 @@ class RadialTreeBrowser {
     nodes.append('circle')
       .attr('r', 10);
 
+    // TODO use a radius ;)
     const hideTextAtBorder = d => {
       if (d.x - BOX_SIZE / 6 < 0) return 0.0;
       if (d.y - BOX_SIZE / 6 < 0) return 0.0;
