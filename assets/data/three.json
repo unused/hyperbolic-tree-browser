@@ -1,0 +1,14 @@
+{
+  "name": "center",
+  "children": [
+    {
+      "name": "one"
+    },
+    {
+      "name": "two"
+    },
+    {
+      "name": "three"
+    }
+  ]
+}
