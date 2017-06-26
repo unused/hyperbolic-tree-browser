@@ -16,11 +16,13 @@ import HyperTreeView  from './hypertree_view';
  **/
 class HyperTree {
   constructor(root) {
-    this.model = new HyperTreeModel(root);
+    this.root  = root;
+    this.model = new HyperTreeModel(this.root);
   }
 
   build() {
     this.model.layoutHyperbolicTree();
+    return this;
   }
 
   get view() {

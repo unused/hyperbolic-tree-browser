@@ -14,14 +14,16 @@ class HyperTreeDraw {
     this.sOrigin = HyperTreeCoordS.fromCoord(this.sMax.x, this.sMax.y);
 
     this.drawNode = this.drawNode.bind(this);
+
+    if (this.model.root.children) {
+      this.root = new HyperTreeDrawNodeComposite(this.model.root, this);
+    } else {
+      this.root = new HyperTreeDrawNode(this.model.root, this);
+    }
   }
 
   get drawRoot() {
-    if (this.model.root.children) {
-      return new HyperTreeDrawNodeComposite(this.model.root, this);
-    }
-
-    return new HyperTreeDrawNode(this.model.root, this);
+    return this.root;
   }
 
   get radius() {
@@ -47,7 +49,7 @@ class HyperTreeDraw {
 
   translate(t) {
     this.drawRoot.translate(t);
-    console.debug('view.repaint()');
+    this.view.draw(); // repaint
   }
 
   endTranslation() {

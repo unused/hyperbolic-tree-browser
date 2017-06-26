@@ -1,7 +1,7 @@
 ---
 author:
-- D. Bramreiter, M. Ebner, ~~P. Leitner~~, C. Lipautz
-title: Hyperbolic Tree Browser using D3.js v4.x
+- D. Bramreiter, M. Ebner, C. Lipautz
+title: Hyperbolic Tree Browser using D3.js v4
 subtitle: INFOVIS - Group 1, SS 2017
 institute: Graz University of Technology
 ---
@@ -16,25 +16,14 @@ institute: Graz University of Technology
 
 Visualize large hierarchical data to support focus + context principle.\footnote{Chapter 5.3.3 Hyperbolic Browser in Course Notes}
 
-## Hyperbolic Tree Browser Example
+## Showcase: Hyperbolic Tree Browser
 
 \small
 ![Hyperbolic Tree Example]
 
-\tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
+## Data-Driven Documents with D3.js v4
 
-## Hyperbolic Tree Browser Construction: Distance
-
-\small
-![Hyperbolic Tree Construction]
-
-\tiny Source: https://en.wikipedia.org/wiki/File:BasicTree.png (Public domain)
-
-## Hyperbolic Tree Browser Construction: Rotation
-
-- Root is at center.
-- Root children have sections of same size around center.
-- Other children have sections of same size inside wedge.
+Use data-joins: Do not tell D3 how to do something, tell what to do!
 
 ## Data-Driven Documents with D3.js v4
 
@@ -49,41 +38,65 @@ svg.append("g")
 
 ## D3.js v4 Support for Hyperbolic Browser Tree Implementation
 
-  - D3.js hierarchical data
-    - attributes: `node.data.name`, `node.depth`
-    - relations: `node.parent`, `node.children`
+D3.js bind data on DOM
 
-  - D3.js document data
-    - `enter()`
-    - `.on('dblclick', function(d){ //...`
+  - `enter()`
+  - `.on('dblclick', function(d){ //...`
+
+## D3.js v4 Support for Hyperbolic Browser Tree Implementation
+
+D3.js hierarchical data
+
+  - attributes: `node.data.name`, `node.depth`
+  - relations: `node.parent`, `node.children`
 
 ## Data structure and D3.Hierarchy
 
 ```json
 {
-    "name": "UCI",
+    "name": "zero",
     "children": [
         {
-            "name": "World Tour",
+            "name": "one",
             "children": [
                 {
-                  "name": "AG2R La Mondiale"
+                  "name": "one-one"
                 },
                 {
-                  "name": "Astana Pro Cycling Team"
+                  "name": "one-two"
                 },
 
                 // ...
 ```
 
-## Using D3.js v4 to Construct Hypertree
+# Project Demonstration (Steps I - V)
 
-- Prepare hierarchical data (provide stratify callback if adaption needed).
-- Provide data to D3.js and set enter handler to transform calculations.
-- D3.js proceeds from root node through children. Wedge and rotation
-  information are stored to nodes.
+<!-- start with README, then explain running services + show on changes -->
 
-# Project Demonstration
+## Using D3.js v4 to Construct Hypertree I
+
+Prepare hierarchical data (provide stratify callback if adaption needed).
+
+<!-- DEMO Dominik -->
+
+## Using D3.js v4 to Construct Hypertree II
+
+<!-- hypertree generation overview -->
+
+## Using D3.js v4 to Construct Hypertree III
+
+Provide data to D3.js and set enter handler to transform calculations.
+
+## Using D3.js v4 to Construct Hypertree IV
+
+D3.js proceeds from root node through children. Wedge and rotation information
+are stored to nodes.
+
+## Using D3.js v4 to Construct Hypertree IV
+
+SVG A11y
+
+# Hyperbolic Tree Browser using D3.js v4.x
 
 [Hyperbolic Tree Example]: images/basic_tree.png
 [Hyperbolic Tree Construction]: images/tree_construction.png
