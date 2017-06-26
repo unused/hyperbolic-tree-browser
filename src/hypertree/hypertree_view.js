@@ -12,10 +12,15 @@ class HyperTreeView {
   }
 
   get root() {
-    this.model.root.node.x    = this.model.root.x;
-    this.model.root.node.y    = this.model.root.y;
-    this.model.root.node.name = this.model.root.name;
+    this.updateRoot();
     return this.model.root;
+  }
+
+  updateRoot() {
+    this.model.root.node.x     = this.model.root.x;
+    this.model.root.node.y     = this.model.root.y;
+    this.model.root.node.name  = this.model.root.name;
+    this.model.root.node.depth = this.model.root.depth;
   }
 
   get actions() {

@@ -21,10 +21,10 @@ class HyperTreeModel {
   }
 
   /**
-   * distance between a node and children, min. 0.4.
+   * distance between a node and children, min. 0.45.
    **/
   get length() {
-    return 0.4;
+    return 0.45;
   }
 
   /**

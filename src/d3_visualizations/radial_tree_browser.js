@@ -76,7 +76,7 @@ class RadialTreeBrowser {
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
         .attr('tabindex', 0)
         .attr('aria-label', d => d.text)
-        .attr('aria-level', d => d.depth)
+        .attr('aria-level', d => d.node && d.node.depth || 0)
         .attr('transform', d => `translate(${d.x} ${d.y})`)
         .on('dblclick', this.clickHandler.bind(this));
         // .on('drag', this.dragHandler());
