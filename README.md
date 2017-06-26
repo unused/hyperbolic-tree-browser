@@ -38,6 +38,21 @@ import.
 
 ## Setup and Development
 
+The ES6 javascript source code located in [/src/] directory is transformed and
+merged into browser friendly JavaScript using **webpack** and **babel**
+resulting in the [/public/assets/bunlde.js] ready to be used by the demo
+application.
+Changes to any source files are watched and the demo application automatically
+refresehd in any open browser window using **browser-sync**.
+A **jest** JavaScript testing based on Jasmin is used to ensure
+hypertree calculation produce expected results.
+To ensure quick edit of styles a **node-sass** watcher is
+transforming SCSS code into CSS inside [/public/assets/] path.
+
+Note: After build process there is no other dependency than **D3 (version
+4.9.1)**, any of the before mentioned libraries are used in development
+environment only.
+
 ```shell
 $ yarn install         # install javascript stuff
 $ yarn build           # build project files
