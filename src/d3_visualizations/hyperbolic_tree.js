@@ -14,10 +14,12 @@ const treemap = d3.tree()
  * Usate:
  *   const hyperbolicTree = new HyperbolicTree(<selector>);
  *   hyperbolicTree.draw(data);
+ *
+ * NOTE: This visualization was replaced by the radial tree browser.
  **/
 class HyperbolicTree {
   constructor(selector) {
-    console.error('this implementation was replaced by radial tree browser');
+    console.error('this visualization is deprecated, see radial tree browser');
 
     this.svg   = d3.select(selector);
     this.group = this.svg.append('g');

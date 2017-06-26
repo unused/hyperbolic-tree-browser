@@ -12,6 +12,8 @@ class HyperTreeView {
   }
 
   get root() {
+    this.model.root.node.x = this.model.root.x;
+    this.model.root.node.y = this.model.root.y;
     return this.model.root;
   }
 
