@@ -18,7 +18,7 @@ class HyperTreeAction {
   }
 
   onClick(node) {
-    console.group('onClick');
+    console.groupCollapsed('onClick');
     console.debug(node);
 
     this.startDrag(node);

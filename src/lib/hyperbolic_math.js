@@ -196,7 +196,8 @@ export default {
    * calculations of wedges and subwedges.
    **/
   hyperbolicPoint: node => {
-    console.group('** hyperbolicPoint %s (%i) **', node.data.name, node.depth);
+    console.groupCollapsed('** hyperbolicPoint %s (%i) **',
+                           node.data.name, node.depth);
 
     node.wedge = calculateWedge(node);
     node.z     = node.parent ? node.parent.wedge.p : rootWedge.p;
