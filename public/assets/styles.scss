@@ -21,6 +21,10 @@ $opacity: .75;
     text {
       font: 1.25rem sans-serif;
     }
+
+    &.selected {
+      outline: .125rem dashed red;
+    }
   }
 
   .edge {

@@ -52,7 +52,7 @@ class HyperTreeDrawNode {
   }
 
   debug() {
-    console.group('draw node %s', this.name);
+    console.groupCollapsed('draw node %s', this.name);
     console.debug('  %f : %f', this.ze.x, this.ze.y);
     console.debug('  %f : %f', this.zs.x, this.zs.y);
     console.debug('  %f : %f', this.zr.x, this.zr.y);

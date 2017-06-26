@@ -38,7 +38,7 @@ class HyperTreeDraw {
    * Draw a node where the radius is reduced by the reduction coefficient.
    **/
   drawNode(node, zs, coeff) {
-    console.group('draw node %s', node.name);
+    console.groupCollapsed('draw node %s', node.name);
     const minMax = Math.min(this.sMax.x, this.sMax.y);
     const radius = this.model.radius * minMax * coeff;
 

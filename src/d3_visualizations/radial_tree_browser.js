@@ -76,10 +76,10 @@ class RadialTreeBrowser {
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
         .attr('tabindex', 0)
         .attr('aria-label', d => d.text)
+        .attr('aria-level', d => d.node && d.node.depth || 0)
         .attr('transform', d => `translate(${d.x} ${d.y})`)
-        .on('dblclick', this.clickHandler.bind(this))
-        .on('keydown', e => console.debug(e)) // this.keyboardHandler.bind(this))
-        .on('drag',    this.dragHandler());
+        .on('dblclick', this.clickHandler.bind(this));
+        // .on('drag', this.dragHandler());
 
     nodes.append('circle')
       .attr('r', 10);
@@ -102,12 +102,6 @@ class RadialTreeBrowser {
 
   clickHandler(event) {
     this.view.actions.onClick(event);
-    this.update();
-  }
-
-  keyboardHandler(event) {
-    console.debug(event, d3.event.key);
-    //this.view.actions.onClick(event);
     this.update();
   }
 }
