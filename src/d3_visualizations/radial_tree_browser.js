@@ -18,6 +18,14 @@ const links = root => root.node.descendants()
     return acc;
   }, []);
 
+const hideTextAtBorder = d => {
+  if (d.x - BOX_SIZE / 6 < 0) return 0.0;
+  if (d.y - BOX_SIZE / 6 < 0) return 0.0;
+  if (d.x + BOX_SIZE / 6 > BOX_SIZE) return 0.0;
+  if (d.y + BOX_SIZE / 6 > BOX_SIZE) return 0.0;
+  return 1.0;
+};
+
 /**
  * A radial tree browser visualization.
  *
@@ -64,29 +72,18 @@ class RadialTreeBrowser {
 
   drawNodes(root) {
     const nodes = this.group.selectAll('.node')
-      .data(root.node.descendants())
-      .enter().append('g')
+      .data(root.node.descendants()).enter().append('g')
         .attr('class', d => `node ${d.children ? 'internal' : 'leaf'}`)
-        .attr('aria-label', d => d.text)
         .attr('tabindex', 0)
+        .attr('aria-label', d => d.text)
         .attr('transform', d => `translate(${d.x} ${d.y})`)
-        .on('click', e => {
-          this.view.actions.onClick(e);
-          this.update();
-        });
+        .on('dblclick', this.clickHandler.bind(this))
+        .on('keydown', e => console.debug(e)) // this.keyboardHandler.bind(this))
+        .on('drag',    this.dragHandler());
 
     nodes.append('circle')
-      .attr('r', 10)
-      .call(this.dragHandler.bind(this));
+      .attr('r', 10);
 
-    // TODO use a radius ;)
-    const hideTextAtBorder = d => {
-      if (d.x - BOX_SIZE / 6 < 0) return 0.0;
-      if (d.y - BOX_SIZE / 6 < 0) return 0.0;
-      if (d.x + BOX_SIZE / 6 > BOX_SIZE) return 0.0;
-      if (d.y + BOX_SIZE / 6 > BOX_SIZE) return 0.0;
-      return 1.0;
-    };
     nodes.append('text')
       .attr('dy', '0.3rem')
       .attr('x', d => (d.x > BOX_SIZE / 2) ? 15 : -15)
@@ -97,14 +94,21 @@ class RadialTreeBrowser {
   }
 
   dragHandler() {
-    if (!this.view) {
-      return ;
-    }
-
     return d3.drag()
       .on('start', this.view.actions.startDrag)
-      .on('drag',  this.view.actions.onDrag)
-      .on('end',   this.view.actions.endDrag);
+      .on('drag',  e => { this.view.actions.onDrag(e);  this.update(); })
+      .on('end',   e => { this.view.actions.endDrag(e); this.update(); });
+  }
+
+  clickHandler(event) {
+    this.view.actions.onClick(event);
+    this.update();
+  }
+
+  keyboardHandler(event) {
+    console.debug(event, d3.event.key);
+    //this.view.actions.onClick(event);
+    this.update();
   }
 }
 

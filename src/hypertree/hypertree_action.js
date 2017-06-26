@@ -21,8 +21,8 @@ class HyperTreeAction {
     console.group('onClick');
     console.debug(node);
 
-    this.startDrag({ x: 500, y: 600 });
-    this.onDrag(node);
+    this.startDrag(node);
+    this.onDrag({ x: 500, y: 500 });
     this.endDrag();
 
     console.groupEnd('onClick');
@@ -30,17 +30,21 @@ class HyperTreeAction {
   }
 
   startDrag(node) {
+    console.debug('start drag');
     this.start.projectionStoE(node.x, node.y, this.model);
   }
 
   onDrag(node) {
+    console.debug('on drag');
     if (!this.start.valid) {
+      console.debug('invalid start');
       return ;
     }
 
     this.end.projectionStoE(node.x, node.y, this.model);
 
     if (!this.end.valid) {
+      console.debug('invalid end');
       return ;
     }
 
@@ -49,6 +53,7 @@ class HyperTreeAction {
   }
 
   endDrag() {
+    console.debug('end drag');
     this.model.endTranslation();
   }
 }

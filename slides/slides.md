@@ -23,7 +23,7 @@ Visualize large hierarchical data to support focus + context principle.\footnote
 
 ## Data-Driven Documents with D3.js v4
 
-Do not tell how to do, tell what to do!
+Use data-joins: Do not tell D3 how to do something, tell what to do!
 
 ## Data-Driven Documents with D3.js v4
 

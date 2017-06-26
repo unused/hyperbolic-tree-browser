@@ -8,7 +8,7 @@ const treemap = d3.tree()
   .size([2 * Math.PI, 500]);
 
 (new HierarchyData('json'))
-  .fetch('/assets/data/500.json')
+  .fetch('/assets/data/simple.json')
   .then(data => treemap(d3.hierarchy(data)))
   .then(root => {
     let tree; (tree = new HyperTree(root).build()).view.draw();

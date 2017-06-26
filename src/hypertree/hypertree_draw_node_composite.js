@@ -5,22 +5,26 @@ import HyperTreeDrawNode from './hypertree_draw_node';
  **/
 class HyperTreeDrawNodeComposite extends HyperTreeDrawNode {
   get children() {
-    return this.node.children.map(node => {
-      if ((node.children || []).length > 0) {
-        return new HyperTreeDrawNodeComposite(node, this.model);
-      }
+    if (!this.drawChildren) {
+      this.drawChildren = this.node.children.map(node => {
+        if ((node.children || []).length > 0) {
+          return new HyperTreeDrawNodeComposite(node, this.model);
+        }
 
-      return new HyperTreeDrawNode(node, this.model);
-    });
+        return new HyperTreeDrawNode(node, this.model);
+      });
+    }
+    return this.drawChildren;
   }
 
   drawNodes(sOrigin, sMax) {
     super.refreshScreenCoordinates(sOrigin, sMax);
 
     console.groupCollapsed('draw nodes for %s', this.node.name);
-    this.children.forEach(child => {
+    this.children.map(child => {
       child.refreshScreenCoordinates(sOrigin, sMax);
       child.drawNodes(sOrigin, sMax);
+      return child;
     });
     console.groupEnd('draw nodes for %s', this.node.name);
     return super.drawNodes();
@@ -28,12 +32,12 @@ class HyperTreeDrawNodeComposite extends HyperTreeDrawNode {
 
   translate(t) {
     super.translate(t);
-    this.children.forEach(child => child.translate(t));
+    this.children.map(child => { child.translate(t); return child; });
   }
 
   endTranslation() {
     super.endTranslation();
-    this.children.forEach(child => child.endTranslation());
+    this.children.map(child => { child.endTranslation(); return child; });
   }
 }
 

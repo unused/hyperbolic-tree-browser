@@ -35,11 +35,12 @@ class HyperTreeDrawNode {
                 + ((this.zr.y - this.ze.y) * (this.zr.y - this.ze.y));
     const coeff = Math.sqrt(dist) / this.model.radius;
 
+    console.debug(this.ze);
     this.model.drawNode(this.node, this.zs, coeff);
   }
 
   translate(t) {
-    console.debug('ze', this.ze);
+    console.debug('ze before', this.ze);
     this.ze.translate(this._ze, t);
     this.zr.translate(this._zr, t);
     console.debug('ze', this.ze);
