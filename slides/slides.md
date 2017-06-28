@@ -69,6 +69,29 @@ D3.js hierarchical data
                 // ...
 ```
 
+## TreeML importer
+```xml
+ <branch>
+        <attribute name="name" value="sample things"/>
+  <branch>
+        <attribute name="name" value="plants"/>
+      <leaf>
+       <attribute name="name" value="oak"/>
+       <attribute name="number" value="10"/>
+       <attribute name="type" value="wild"/>
+      </leaf>
+      <leaf>
+       <attribute name="name" value="afican violet"/>
+       <attribute name="number" value="3"/>
+       <attribute name="type" value="domestic"/>
+      </leaf>
+  </branch>
+```
+
+## TreeML to JSON
+\small
+![Layout Tree with JSON]
+
 # Project Demonstration (Steps I - V)
 
 <!-- start with README, then explain running services + show on changes -->
@@ -100,4 +123,5 @@ SVG A11y
 
 [Hyperbolic Tree Example]: images/basic_tree.png
 [Hyperbolic Tree Construction]: images/tree_construction.png
+[Layout Tree with JSON]: images/layout.png
 
