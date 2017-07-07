@@ -1,4 +1,5 @@
 import HyperTreeCoordE from './hypertree_coord_e';
+import debounce from '../utils/debounce';
 
 /**
  * HyperTree Action
@@ -30,31 +31,32 @@ class HyperTreeAction {
   }
 
   startDrag(node) {
-    console.debug('start drag');
+    console.groupCollapsed('onDrag');
     this.start.projectionStoE(node.x, node.y, this.model);
   }
 
   onDrag(node) {
-    console.debug('on drag');
-    if (!this.start.valid) {
-      console.debug('invalid start');
-      return ;
-    }
+    debounce(function() {
+      if (!this.start.valid) {
+        console.debug('invalid start');
+        return ;
+      }
 
-    this.end.projectionStoE(node.x, node.y, this.model);
+      this.end.projectionStoE(node.x, node.y, this.model);
 
-    if (!this.end.valid) {
-      console.debug('invalid end');
-      return ;
-    }
+      if (!this.end.valid) {
+        console.debug('invalid end');
+        return ;
+      }
 
-    this.current.sub(this.end, this.start);
-    this.model.translate(this.current);
+      this.current.sub(this.end, this.start);
+      this.model.translate(this.current);
+    }.bind(this), 50, true)();
   }
 
   endDrag() {
-    console.debug('end drag');
     this.model.endTranslation();
+    console.groupEnd('onDrag');
   }
 }
 

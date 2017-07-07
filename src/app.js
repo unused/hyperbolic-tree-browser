@@ -12,7 +12,7 @@ const treemap = d3.tree()
 TreeBrowserKeyboardNavigation.listenFor('node');
 
 (new HierarchyData('json'))
-  .fetch('/assets/data/simple.json')
+  .fetch('/assets/data/50.json')
   .then(data => treemap(d3.hierarchy(data)))
   .then(root => {
     let tree; (tree = new HyperTree(root).build()).view.draw();

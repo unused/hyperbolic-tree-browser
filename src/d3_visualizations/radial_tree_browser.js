@@ -78,8 +78,8 @@ class RadialTreeBrowser {
         .attr('aria-label', d => d.text)
         .attr('aria-level', d => d.node && d.node.depth || 0)
         .attr('transform', d => `translate(${d.x} ${d.y})`)
-        .on('dblclick', this.clickHandler.bind(this));
-        // .on('drag', this.dragHandler());
+        .on('dblclick', this.clickHandler.bind(this))
+        .call(this.dragHandler());
 
     nodes.append('circle')
       .attr('r', 10);
@@ -95,12 +95,13 @@ class RadialTreeBrowser {
 
   dragHandler() {
     return d3.drag()
-      .on('start', this.view.actions.startDrag)
-      .on('drag',  e => { this.view.actions.onDrag(e);  this.update(); })
-      .on('end',   e => { this.view.actions.endDrag(e); this.update(); });
+      .on('start', () => this.view.actions.startDrag(d3.event))
+      .on('drag', () => { this.view.actions.onDrag(d3.event); this.update() })
+      .on('end', () => { this.view.actions.endDrag(d3.event); this.update() });
   }
 
   clickHandler(event) {
+    console.debug('nope');
     this.view.actions.onClick(event);
     this.update();
   }
