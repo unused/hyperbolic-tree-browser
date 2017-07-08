@@ -48,6 +48,12 @@ class RadialTreeBrowser {
     this.group.call(this.dragHandler());
   }
 
+  clear() {
+    this.group.selectAll('.edge').remove();
+    this.group.selectAll('.node').remove();
+    return this;
+  }
+
   draw(view) {
     this.view = view;
     this.update();
@@ -56,8 +62,7 @@ class RadialTreeBrowser {
   }
 
   update() {
-    this.group.selectAll('.edge').remove();
-    this.group.selectAll('.node').remove();
+    this.clear();
     this.drawEdges(this.view.root);
     this.drawNodes(this.view.root);
   }

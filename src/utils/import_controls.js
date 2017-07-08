@@ -12,12 +12,14 @@ class ImportControls {
 
   listen() {
     document.body.addEventListener("dragover", this.handleDragover.bind(this));
+    document.body.addEventListener("drop", this.handleDrop.bind(this));
     this.fileInput.addEventListener('change', this.handleFileChange.bind(this));
     this.button.addEventListener('click', this.handleClick.bind(this));
   }
 
   destroy() {
     document.body.removeEventListener('dragover');
+    document.body.removeEventListener('drop');
     this.fileInput.removeEventListener('change');
     this.button.removeEventListener('click');
   }
@@ -30,6 +32,16 @@ class ImportControls {
     console.debug('Importer::handleDragover');
     document.body.setAttribute('class',
       `${document.body.getAttribute('class') || ''} dragover`);
+  }
+
+  handleDrop(event) {
+    event.preventDefault();
+
+    if (!event.dataTransfer.files) {
+      return ;
+    }
+
+    this.readFile(event.dataTransfer.files[0], this.action);
   }
 
   handleClick() {
