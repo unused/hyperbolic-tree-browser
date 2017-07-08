@@ -1,9 +1,0 @@
-
-slides:
-  image: registry.gitlab.com/gbraad/docugen:latest
-  script:
-  - mkdir -p build
-  - make slides
-  artifacts:
-    paths:
-    - build
