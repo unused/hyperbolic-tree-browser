@@ -9,7 +9,7 @@ const treemap = d3.tree()
   .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
 /**
- * A hyperbolic tree visualization (deprecated).
+ * [DEPRECATED] A hyperbolic tree visualization.
  *
  * Usate:
  *   const hyperbolicTree = new HyperbolicTree(<selector>);

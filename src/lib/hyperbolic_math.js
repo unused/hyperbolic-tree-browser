@@ -1,3 +1,4 @@
+/* [DEPRECATED] */
 import math from 'mathjs';
 
 console.error('this implementation is deprecated, use hypertree instead');

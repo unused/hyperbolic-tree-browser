@@ -3,14 +3,19 @@ import debounce from '../utils/debounce';
 
 
 /**
- * To simulate animation steps for the click event, we produce 10 steps of
+ * To simulate animation steps for the click event, we produce 8 steps of
  * updates. Note: The last step is the target.
  **/
 const animationSteps = (init, target) => {
-  let  steps = [{ x: target.x, y: target.y }];
-  const step = { x: (target.x - init.x) / 10, y: (target.y - init.y) / 10 };
+  const numberOfSteps = 8;
 
-  for (let i = 1; i < 10; i++) {
+  let  steps = [{ x: target.x, y: target.y }];
+  const step = {
+    x: (target.x - init.x) / numberOfSteps,
+    y: (target.y - init.y) / numberOfSteps
+  };
+
+  for (let i = 1; i < numberOfSteps; i++) {
     steps[i] = { x: steps[i-1].x - step.x, y: steps[i-1].y - step.y };
   }
 
@@ -35,7 +40,8 @@ class HyperTreeAction {
   }
 
   onClick(node, update) {
-     console.debug('onClick');
+    console.debug('onClick');
+    const animationTime = 400;
 
     this.startDrag(node);
     let steps = animationSteps(node, { x: 500, y: 500 });
@@ -48,7 +54,7 @@ class HyperTreeAction {
       console.debug('click steps', steps);
       this.onDrag(steps.pop());
       update();
-    }, 200 / 10);
+    }, animationTime / steps.length);
 
     return this.model.root;
   }

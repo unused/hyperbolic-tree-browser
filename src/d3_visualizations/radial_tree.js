@@ -6,7 +6,7 @@ const treemap = d3.tree()
   .separation((a, b) => (a.parent == b.parent ? 1 : 2) / a.depth);
 
 /**
- * A demonstrational radial tidy tree implementation.
+ * [DEMO] A demonstrational radial tidy tree implementation.
  *
  * @see https://bl.ocks.org/mbostock/4063550
  **/
