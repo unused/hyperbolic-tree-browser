@@ -65,10 +65,14 @@ class RadialTreeBrowser {
   drawEdges(root) {
     this.group.selectAll('.edge')
       .data(links(root))
-      .enter().append('line')
+      .enter().append('path')
         .attr('class', 'edge')
-        .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
-        .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+        .attr('d', d => {
+          const s = d.source;
+          const t = d.target;
+          console.debug(s.name, t.radius, t.name);
+          return `M${s.x},${s.y}S${t.x},${s.y} ${t.x},${t.y}`;
+        });
   }
 
   drawNodes(root) {
