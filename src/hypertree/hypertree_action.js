@@ -1,6 +1,22 @@
 import HyperTreeCoordE from './hypertree_coord_e';
 import debounce from '../utils/debounce';
 
+
+/**
+ * To simulate animation steps for the click event, we produce 10 steps of
+ * updates. Note: The last step is the target.
+ **/
+const animationSteps = (init, target) => {
+  let  steps = [{ x: target.x, y: target.y }];
+  const step = { x: (target.x - init.x) / 10, y: (target.y - init.y) / 10 };
+
+  for (let i = 1; i < 10; i++) {
+    steps[i] = { x: steps[i-1].x - step.x, y: steps[i-1].y - step.y };
+  }
+
+  return steps;
+};
+
 /**
  * HyperTree Action
  **/
@@ -18,24 +34,32 @@ class HyperTreeAction {
     this.endDrag   = this.endDrag.bind(this);
   }
 
-  onClick(node) {
-    console.groupCollapsed('onClick');
-    console.debug(node);
+  onClick(node, update) {
+     console.debug('onClick');
 
     this.startDrag(node);
-    this.onDrag({ x: 500, y: 500 });
-    this.endDrag();
+    let steps = animationSteps(node, { x: 500, y: 500 });
+    let animate = setInterval(() => {
+      if (steps.length === 0) {
+        clearInterval(animate);
+        this.endDrag();
+        update();
+      }
+      console.debug('click steps', steps);
+      this.onDrag(steps.pop());
+      update();
+    }, 200 / 10);
 
-    console.groupEnd('onClick');
     return this.model.root;
   }
 
   startDrag(node) {
-    console.groupCollapsed('onDrag');
+    console.debug('startDrag');
     this.start.projectionStoE(node.x, node.y, this.model);
   }
 
   onDrag(node) {
+    console.debug('onDrag');
     debounce(function() {
       if (!this.start.valid) {
         console.debug('invalid start');
@@ -56,7 +80,7 @@ class HyperTreeAction {
 
   endDrag() {
     this.model.endTranslation();
-    console.groupEnd('onDrag');
+    console.debug('endDrag');
   }
 }
 

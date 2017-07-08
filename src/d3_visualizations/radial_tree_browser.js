@@ -135,8 +135,7 @@ class RadialTreeBrowser {
 
   clickHandler(event) {
     console.debug('click');
-    this.view.actions.onClick(event);
-    this.update();
+    this.view.actions.onClick(event, this.update.bind(this));
   }
 }
 
