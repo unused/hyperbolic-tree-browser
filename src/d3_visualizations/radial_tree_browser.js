@@ -45,6 +45,7 @@ class RadialTreeBrowser {
 
     this.svg.attr('viewBox', `0 0 ${BOX_SIZE} ${BOX_SIZE}`);
     this.group.attr('class', 'radial-tree-browser');
+    this.group.call(this.dragHandler());
   }
 
   draw(view) {
@@ -77,9 +78,7 @@ class RadialTreeBrowser {
         .attr('tabindex', 0)
         .attr('aria-label', d => d.text)
         .attr('aria-level', d => d.node && d.node.depth || 0)
-        .attr('transform', d => `translate(${d.x} ${d.y})`)
-        .on('dblclick', this.clickHandler.bind(this))
-        .call(this.dragHandler());
+        .attr('transform', d => `translate(${d.x} ${d.y})`);
 
     nodes.append('circle')
       .attr('r', 10);
@@ -91,17 +90,51 @@ class RadialTreeBrowser {
       .attr('transform', labelRotation)
       .attr('opacity', hideTextAtBorder)
       .text(d => d.name);
+
+    nodes
+      .on('dblclick', this.clickHandler.bind(this));
   }
 
+  /**
+   * As d3 has an issue with drag & click handling at the same time, we figure
+   * out a doubleclick occured ourselves and trigger the onclick handler.
+   **/
   dragHandler() {
+    let clickTimestamp = new Date().getTime();
+    const testDoubleClick = () => {
+      const now = new Date().getTime();
+      const doubleClick = (now - clickTimestamp) <= 500;
+      clickTimestamp = new Date().getTime();
+      return doubleClick;
+    };
+
     return d3.drag()
-      .on('start', () => this.view.actions.startDrag(d3.event))
-      .on('drag', () => { this.view.actions.onDrag(d3.event); this.update() })
-      .on('end', () => { this.view.actions.endDrag(d3.event); this.update() });
+      .on('start', () => {
+        this.view.actions.startDrag(d3.event);
+        d3.event.sourceEvent.stopPropagation();
+      })
+      .on('drag', () => {
+        this.view.actions.onDrag(d3.event);
+        d3.event.sourceEvent.stopPropagation();
+        this.update();
+      })
+      .on('end', function() {
+        if (testDoubleClick()) {
+          this.clickHandler(d3.event);
+          return ;
+        } else {
+          this.view.actions.endDrag(d3.event);
+          d3.event.sourceEvent.stopPropagation();
+          this.update();
+        }
+
+        d3.event.sourceEvent
+          .target.parentElement.setAttribute('class', 'node selected');
+      }.bind(this));
   }
 
   clickHandler(event) {
-    console.debug('nope');
+    console.debug('click');
     this.view.actions.onClick(event);
     this.update();
   }
