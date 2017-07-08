@@ -40,7 +40,7 @@ function treeMLToJson(xml) {
       //check if branch or leaf
       if(item.nodeName === "branch") {
         // handle branch, call recursion with its children.
-        entry.children.push(xmlToJson(item));
+        entry.children.push(treeMLToJson(item));
       } else if(item.nodeName === "leaf") {
         //if leaf, we know it has only attributes anymore, so we get each leafs, first attribute only
         var leaf_entry = {name: "", children: []};
@@ -49,7 +49,7 @@ function treeMLToJson(xml) {
       } else if(item.nodeName === "attribute") {
         //console.log("attripute - loop: #" + i, nodeName)
       } else {
-        entry.children.push(xmlToJson(item));
+        entry.children.push(treeMLToJson(item));
       }
     }
   }
