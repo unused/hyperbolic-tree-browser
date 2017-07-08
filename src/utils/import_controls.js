@@ -11,30 +11,23 @@ class ImportControls {
   }
 
   listen() {
-    document.body.addEventListener("dragover", this.handleDragover.bind(this));
-    document.body.addEventListener("drop", this.handleDrop.bind(this));
+    document.body.addEventListener("dragover", this.styleDropzone, false);
+    document.body.addEventListener("dragleave", this.unstyleDropzone, false);
+    document.body.addEventListener("drop", this.handleDrop.bind(this), false);
     this.fileInput.addEventListener('change', this.handleFileChange.bind(this));
     this.button.addEventListener('click', this.handleClick.bind(this));
   }
 
   destroy() {
     document.body.removeEventListener('dragover');
+    document.body.removeEventListener('dragleave');
     document.body.removeEventListener('drop');
     this.fileInput.removeEventListener('change');
     this.button.removeEventListener('click');
   }
 
-  handleDragover() {
-    if ((document.body.getAttribute('class') || '').includes('dragover')) {
-      return ;
-    }
-
-    console.debug('Importer::handleDragover');
-    document.body.setAttribute('class',
-      `${document.body.getAttribute('class') || ''} dragover`);
-  }
-
   handleDrop(event) {
+    event.stopPropagation();
     event.preventDefault();
 
     if (!event.dataTransfer.files) {
@@ -42,6 +35,29 @@ class ImportControls {
     }
 
     this.readFile(event.dataTransfer.files[0], this.action);
+  }
+
+  styleDropzone(event) {
+    event.dataTransfer.dropEffect = 'copy';
+    const className = document.body.getAttribute('class') || '';
+    if (className.includes('dragover')) {
+      return ;
+    }
+    let classNames = className.split(' ');
+    classNames.push('dragover');
+    document.body.setAttribute('class', classNames.join(' '));
+  }
+
+  unstyleDropzone() {
+    console.debug('unstyleDropzone');
+    const className = document.body.getAttribute('class');
+    if (!className) {
+      return ;
+    }
+
+    let classNames = className.split(' ');
+    document.body.setAttribute('class',
+      classNames.filter(c => c !== 'dragover').join(' '));
   }
 
   handleClick() {

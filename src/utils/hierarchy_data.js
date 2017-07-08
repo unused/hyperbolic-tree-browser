@@ -43,9 +43,9 @@ class HierarchyData {
 
   convert(data) {
     return {
-      treeml: treeml,
-      skos:   skos,
-      json:   data => (data.json ? data.json() : JSON.parse(data))
+      tree: treeml,
+      skos: skos,
+      json: data => (data.json ? data.json() : JSON.parse(data))
     }[this.type](data);
   }
 

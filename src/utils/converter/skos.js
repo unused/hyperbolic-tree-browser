@@ -46,11 +46,11 @@ function buildTreeFromSkos(concept, concept_list) {
 
 function skosToJson(xml) {
   var obj = [];
-  json_entries = [];
+  var json_entries = [];
   //var topNodes = ["skos:ConceptScheme", "skos:Concept", "rdf:Description"];
   var topNodes = ["ConceptScheme", "Concept", "Description", "skos:ConceptScheme", "skos:Concept", "rdf:Description"];
   for (var top_nodes_counter = 0; top_nodes_counter < topNodes.length; top_nodes_counter++) {
-    x = xml.getElementsByTagName(topNodes[top_nodes_counter]);
+    var x = xml.getElementsByTagName(topNodes[top_nodes_counter]);
     
     for (var i = 0; i < x.length; i++) {
       var id = -1;
@@ -109,4 +109,6 @@ function skosToJson(xml) {
   return json_tree;
 };
 
-export default function(content) { return skosToJson(this.responseXML); }
+export default function(content) {
+  return skosToJson(new DOMParser().parseFromString(content, "text/xml"));
+}

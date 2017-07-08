@@ -57,4 +57,7 @@ function treeMLToJson(xml) {
   return entry;
 };
 
-export default function(content) { return treeMLToJson(xml).children[1].children[0]; }
+export default function(content) {
+  return treeMLToJson(new DOMParser().parseFromString(content, "text/xml"))
+    .children[1].children[0];
+}

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -17410,8 +17410,8 @@ class RadialTreeBrowser {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_model__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_view__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_model__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_view__ = __webpack_require__(16);
 
 
 
@@ -17454,8 +17454,8 @@ class HyperTree {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_d3__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_d3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_d3__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__converter_skos_js__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__converter_treeml_js__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__converter_skos_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__converter_treeml_js__ = __webpack_require__(18);
 
 
 
@@ -17501,9 +17501,9 @@ class HierarchyData {
 
   convert(data) {
     return {
-      treeml: __WEBPACK_IMPORTED_MODULE_2__converter_treeml_js__["a" /* default */],
-      skos:   __WEBPACK_IMPORTED_MODULE_1__converter_skos_js__["a" /* default */],
-      json:   data => (data.json ? data.json() : JSON.parse(data))
+      tree: __WEBPACK_IMPORTED_MODULE_2__converter_treeml_js__["a" /* default */],
+      skos: __WEBPACK_IMPORTED_MODULE_1__converter_skos_js__["a" /* default */],
+      json: data => (data.json ? data.json() : JSON.parse(data))
     }[this.type](data);
   }
 
@@ -17528,6 +17528,102 @@ class HierarchyData {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+
+class ImportControls {
+
+  constructor(selector, action) {
+    this.selector  = selector;
+    this.action    = action;
+    this.fileInput = document.querySelector(`${selector} input[type=file]`);
+    this.button    = document.querySelector(`${selector} button`);
+    console.debug('Importer::constructor', this.fileInput, this.controls, this.button);
+  }
+
+  listen() {
+    document.body.addEventListener("dragover", this.styleDropzone, false);
+    document.body.addEventListener("dragleave", this.unstyleDropzone, false);
+    document.body.addEventListener("drop", this.handleDrop.bind(this), false);
+    this.fileInput.addEventListener('change', this.handleFileChange.bind(this));
+    this.button.addEventListener('click', this.handleClick.bind(this));
+  }
+
+  destroy() {
+    document.body.removeEventListener('dragover');
+    document.body.removeEventListener('dragleave');
+    document.body.removeEventListener('drop');
+    this.fileInput.removeEventListener('change');
+    this.button.removeEventListener('click');
+  }
+
+  handleDrop(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if (!event.dataTransfer.files) {
+      return ;
+    }
+
+    this.readFile(event.dataTransfer.files[0], this.action);
+  }
+
+  styleDropzone(event) {
+    event.dataTransfer.dropEffect = 'copy';
+    const className = document.body.getAttribute('class') || '';
+    if (className.includes('dragover')) {
+      return ;
+    }
+    let classNames = className.split(' ');
+    classNames.push('dragover');
+    document.body.setAttribute('class', classNames.join(' '));
+  }
+
+  unstyleDropzone() {
+    console.debug('unstyleDropzone');
+    const className = document.body.getAttribute('class');
+    if (!className) {
+      return ;
+    }
+
+    let classNames = className.split(' ');
+    document.body.setAttribute('class',
+      classNames.filter(c => c !== 'dragover').join(' '));
+  }
+
+  handleClick() {
+    console.debug('Importer::handleClick');
+    this.fileInput.click();
+  }
+
+  handleFileChange(event) {
+    console.debug('Importer::handleFileChange');
+    document.body.setAttribute('class',
+      (document.body.getAttribute('class') || '').replace(' dragover', ''));
+
+    if (!event.target.files || !event.target.files[0]) {
+      return;
+    }
+
+    this.readFile(event.target.files[0], this.action);
+  }
+
+  readFile(file, callback) {
+    let reader = new FileReader();
+    reader.onload = function(e) {
+      callback(file, e.target.result);
+    };
+    return reader.readAsText(file);
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (ImportControls);
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17647,7 +17743,7 @@ class KeyboardNavigation {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17657,8 +17753,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_hierarchy_data__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hypertree_hypertree_js__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__d3_visualizations_radial_tree_browser_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_keyboard_navigation_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_import_controls_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_keyboard_navigation_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_import_controls_js__ = __webpack_require__(8);
 
 
 
@@ -17698,12 +17794,12 @@ const updateVisualisation = (file, content) => {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_coord_e__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_debounce__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_debounce__ = __webpack_require__(19);
 
 
 
@@ -17800,13 +17896,13 @@ class HyperTreeAction {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_coord_s__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_draw_node__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hypertree_draw_node_composite__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__hypertree_draw_node_composite__ = __webpack_require__(13);
 
 
 
@@ -17870,7 +17966,7 @@ class HyperTreeDraw {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17922,12 +18018,12 @@ class HyperTreeDrawNodeComposite extends __WEBPACK_IMPORTED_MODULE_0__hypertree_
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_node__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_node_composite__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_node_composite__ = __webpack_require__(15);
 
 
 
@@ -17969,7 +18065,7 @@ class HyperTreeModel {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18039,12 +18135,12 @@ class HyperTreeNodeComposite extends __WEBPACK_IMPORTED_MODULE_0__hypertree_node
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_draw__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_action__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hypertree_draw__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hypertree_action__ = __webpack_require__(11);
 
 
 
@@ -18083,119 +18179,7 @@ class HyperTreeView {
 
 
 /***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-/**
- * Returns a function, that, as long as it continues to be invoked, will not
- * be triggered. The function will be called after it stops being called for
- * N milliseconds. If `immediate` is passed, trigger the function on the
- * leading edge, instead of the trailing.
- *
- * @see https://davidwalsh.name/javascript-debounce-function
- **/
-/* harmony default export */ __webpack_exports__["a"] = (function(func, wait, immediate) {
-  let timeout;
-  return function() {
-    let context = this, args = arguments;
-    let later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    let callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-});;
-
-
-
-
-/***/ }),
 /* 17 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-
-class ImportControls {
-
-  constructor(selector, action) {
-    this.selector  = selector;
-    this.action    = action;
-    this.fileInput = document.querySelector(`${selector} input[type=file]`);
-    this.button    = document.querySelector(`${selector} button`);
-    console.debug('Importer::constructor', this.fileInput, this.controls, this.button);
-  }
-
-  listen() {
-    document.body.addEventListener("dragover", this.handleDragover.bind(this));
-    document.body.addEventListener("drop", this.handleDrop.bind(this));
-    this.fileInput.addEventListener('change', this.handleFileChange.bind(this));
-    this.button.addEventListener('click', this.handleClick.bind(this));
-  }
-
-  destroy() {
-    document.body.removeEventListener('dragover');
-    document.body.removeEventListener('drop');
-    this.fileInput.removeEventListener('change');
-    this.button.removeEventListener('click');
-  }
-
-  handleDragover() {
-    if ((document.body.getAttribute('class') || '').includes('dragover')) {
-      return ;
-    }
-
-    console.debug('Importer::handleDragover');
-    document.body.setAttribute('class',
-      `${document.body.getAttribute('class') || ''} dragover`);
-  }
-
-  handleDrop(event) {
-    event.preventDefault();
-
-    if (!event.dataTransfer.files) {
-      return ;
-    }
-
-    this.readFile(event.dataTransfer.files[0], this.action);
-  }
-
-  handleClick() {
-    console.debug('Importer::handleClick');
-    this.fileInput.click();
-  }
-
-  handleFileChange(event) {
-    console.debug('Importer::handleFileChange');
-    document.body.setAttribute('class',
-      (document.body.getAttribute('class') || '').replace(' dragover', ''));
-
-    if (!event.target.files || !event.target.files[0]) {
-      return;
-    }
-
-    this.readFile(event.target.files[0], this.action);
-  }
-
-  readFile(file, callback) {
-    let reader = new FileReader();
-    reader.onload = function(e) {
-      callback(file, e.target.result);
-    };
-    return reader.readAsText(file);
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (ImportControls);
-
-
-/***/ }),
-/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18247,11 +18231,11 @@ function buildTreeFromSkos(concept, concept_list) {
 
 function skosToJson(xml) {
   var obj = [];
-  json_entries = [];
+  var json_entries = [];
   //var topNodes = ["skos:ConceptScheme", "skos:Concept", "rdf:Description"];
   var topNodes = ["ConceptScheme", "Concept", "Description", "skos:ConceptScheme", "skos:Concept", "rdf:Description"];
   for (var top_nodes_counter = 0; top_nodes_counter < topNodes.length; top_nodes_counter++) {
-    x = xml.getElementsByTagName(topNodes[top_nodes_counter]);
+    var x = xml.getElementsByTagName(topNodes[top_nodes_counter]);
     
     for (var i = 0; i < x.length; i++) {
       var id = -1;
@@ -18310,11 +18294,13 @@ function skosToJson(xml) {
   return json_tree;
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (function(content) { return skosToJson(this.responseXML); });
+/* harmony default export */ __webpack_exports__["a"] = (function(content) {
+  return skosToJson(new DOMParser().parseFromString(content, "text/xml"));
+});
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18377,7 +18363,42 @@ function treeMLToJson(xml) {
   return entry;
 };
 
-/* harmony default export */ __webpack_exports__["a"] = (function(content) { return treeMLToJson(xml).children[1].children[0]; });
+/* harmony default export */ __webpack_exports__["a"] = (function(content) {
+  return treeMLToJson(new DOMParser().parseFromString(content, "text/xml"))
+    .children[1].children[0];
+});
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+/**
+ * Returns a function, that, as long as it continues to be invoked, will not
+ * be triggered. The function will be called after it stops being called for
+ * N milliseconds. If `immediate` is passed, trigger the function on the
+ * leading edge, instead of the trailing.
+ *
+ * @see https://davidwalsh.name/javascript-debounce-function
+ **/
+/* harmony default export */ __webpack_exports__["a"] = (function(func, wait, immediate) {
+  let timeout;
+  return function() {
+    let context = this, args = arguments;
+    let later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+});;
+
+
 
 
 /***/ })
