@@ -1,0 +1,217 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE tree SYSTEM "treeml.dtd">
+<tree>
+  <declarations>
+    <attributeDecl name="name" type="String"/>
+    <attributeDecl name="number" type="Real"/>
+    <attributeDecl name="type" type="String"/>
+  </declarations>
+  <branch>
+    <attribute name="name" value="document types"/>
+
+    <!-- text -->
+    <branch>
+      <attribute name="name" value="text"/>
+      <branch>
+        <attribute name="name" value="ms word"/>
+        <branch>
+          <attribute name="name" value="word 2.0"/>
+          <leaf>
+            <attribute name="name" value="msword1.doc"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="word 6.0"/>
+          <leaf>
+            <attribute name="name" value="msword1.doc"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="word 97/2k/xp"/>
+          <leaf>
+            <attribute name="name" value="msword1.doc"/>
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="plain text"/>
+        <branch>
+          <attribute name="name" value="dos"/>
+          <leaf>
+            <attribute name="name" value="text1.txt"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="unix"/>
+          <leaf>
+            <attribute name="name" value="text1.txt"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="mac"/>
+          <leaf>
+            <attribute name="name" value="text1.txt"/>
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="html"/>
+        <branch>
+          <attribute name="name" value="html 3.0"/>
+          <leaf>
+            <attribute name="name" value="html1.html"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="html 4.0"/>
+          <leaf>
+            <attribute name="name" value="html1.html"/>
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="adobe pdf"/>
+        <branch>
+          <attribute name="name" value="pdf 4.0"/>
+          <leaf>
+            <attribute name="name" value="pdf_1.pdf"/>
+          </leaf>
+          <leaf>
+            <attribute name="name" value="pdf_2.pdf"/>
+          </leaf>
+          <leaf>
+            <attribute name="name" value="pdf_3.pdf"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="pdf 5.0"/>
+          <leaf>
+            <attribute name="name" value="pdf_1.pdf"/>
+          </leaf>
+          <leaf>
+            <attribute name="name" value="pdf_2.pdf"/>
+          </leaf>
+          <leaf>
+            <attribute name="name" value="pdf_3.pdf"/>
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="pdf 6.0"/>
+          <leaf>
+            <attribute name="name" value="pdf_1.pdf"/>
+          </leaf>
+          <leaf>
+            <attribute name="name" value="pdf_2.pdf"/>
+          </leaf>
+          <leaf>
+            <attribute name="name" value="pdf_3.pdf"/>
+          </leaf>
+        </branch>
+      </branch>
+    </branch>
+
+
+    <!-- images -->
+    <branch>
+      <attribute name="name" value="image"/>
+      <branch>
+        <attribute name="name" value="gif"/>
+        <leaf>
+          <attribute name="name" value="gif_1.gif"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="gif_2.gif"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="gif_3.gif"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="gif_4.gif"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="jpeg"/>
+        <leaf>
+          <attribute name="name" value="jpeg_1.jpg"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="jpeg_2.jpg"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="png"/>
+        <leaf>
+          <attribute name="name" value="png_1.png"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="png_2.png"/>
+        </leaf>
+      </branch>
+    </branch>
+
+    <!-- executables -->
+    <branch>
+      <attribute name="name" value="executables"/>
+      <branch>
+        <attribute name="name" value="binary"/>
+        <leaf>
+          <attribute name="name" value="binary_1.exe"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="binary_2.exe"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="batch"/>
+        <leaf>
+          <attribute name="name" value="batch_1.bat"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="batch_2.bat"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="batch_3.bat"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="batch_4.bat"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="batch_5.bat"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+      </branch>
+    </branch>
+
+    <!-- source -->
+    <branch>
+      <attribute name="name" value="source"/>
+      <branch>
+        <attribute name="name" value="c/c++"/>
+        <leaf>
+          <attribute name="name" value="binary_1.c"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="binary_2.cpp"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="java"/>
+        <leaf>
+          <attribute name="name" value="java_1.java"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="java_2.java"/>
+          <attribute name="size" value="2000"/>
+        </leaf>
+      </branch>
+    </branch>
+
+  </branch>
+</tree>
+

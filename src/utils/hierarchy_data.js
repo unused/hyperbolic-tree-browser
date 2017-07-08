@@ -42,11 +42,11 @@ class HierarchyData {
   }
 
   convert(data) {
-    return this[{
+    return {
       treeml: treeml,
       skos:   skos,
       json:   data => (data.json ? data.json() : JSON.parse(data))
-    }[this.type]](data);
+    }[this.type](data);
   }
 
   fetch(resource) {

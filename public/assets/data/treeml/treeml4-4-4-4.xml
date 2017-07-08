@@ -1,0 +1,1420 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE tree SYSTEM "treeml.dtd">
+<tree>
+ <declarations>
+  <attributeDecl name="name" type="String"/>
+  <attributeDecl name="hitCount" type="Integer"/>
+  <attributeDecl name="size" type="Integer"/>
+  <attributeDecl name="uid" type="Integer"/>
+  <attributeDecl name="gid" type="Integer"/>
+  <attributeDecl name="mtime" type="Long"/>
+  <attributeDecl name="ctime" type="Long"/>
+  <attributeDecl name="title" type="String"/>
+ </declarations>
+<branch>
+  <attribute name="name" value="treeml4-4-4-4"/>
+  <branch>
+    <attribute name="name" value="computer"/>
+    <branch>
+      <attribute name="name" value="notebooks"/>
+      <branch>
+        <attribute name="name" value="bis_12_tft"/>
+        <leaf>
+          <attribute name="name" value="bis 12.1&amp;quot TFT"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="Acer TravelMate 372TMi (LX.T3906.109)"/>
+          <leaf>
+            <attribute name="name" value="30_1102696661.jpg"/>
+            <attribute name="size" value="14461" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="Toshiba Port&#233;g&#233; R100"/>
+          <leaf>
+            <attribute name="name" value="31_1102696733.jpg"/>
+            <attribute name="size" value="15935" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="Samsung Q20 TXC 1100 (NQ20RP2QTQ/SEG)"/>
+          <leaf>
+            <attribute name="name" value="32_1102696787.jpg"/>
+            <attribute name="size" value="12374" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="HP Compaq nc4010 Pentium-M 1.50GHz (DY886AA)"/>
+          <leaf>
+            <attribute name="name" value="33_1102696839.jpg"/>
+            <attribute name="size" value="12021" />
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="mit_13.3"/>
+        <leaf>
+          <attribute name="name" value="mit 13.3&amp;quot TFT"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="Panasonic Toughbook CF-29"/>
+          <leaf>
+            <attribute name="name" value="34_1102698767.jpg"/>
+            <attribute name="size" value="10802" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="FSC Lifebook S6120"/>
+          <leaf>
+            <attribute name="name" value="35_1102698784.jpg"/>
+            <attribute name="size" value="14667" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="Sony Vaio VGN-S1VP"/>
+          <leaf>
+            <attribute name="name" value="36_1102698824.jpg"/>
+            <attribute name="size" value="14995" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="Acer TravelMate 3201XMi"/>
+          <leaf>
+            <attribute name="name" value="37_1102698905.jpg"/>
+            <attribute name="size" value="10149" />
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="mit_14"/>
+        <leaf>
+          <attribute name="name" value="mit 14.1&amp;quot TFT"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="Samsung X10plus XTM 1600 II"/>
+          <leaf>
+            <attribute name="name" value="38_1102699007.jpg"/>
+            <attribute name="size" value="16078" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="IBM ThinkPad R40e, 14,1&quot; TFT, Mobile Celeron"/>
+          <leaf>
+            <attribute name="name" value="39_1102699043.jpg"/>
+            <attribute name="size" value="13854" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="BenQ Joybook 5000"/>
+          <leaf>
+            <attribute name="name" value="40_1102699084.jpg"/>
+            <attribute name="size" value="12294" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="ASUS M2442NW"/>
+          <leaf>
+            <attribute name="name" value="41_1102699143.jpg"/>
+            <attribute name="size" value="11916" />
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="mit_16"/>
+        <leaf>
+          <attribute name="name" value="mit 16&amp;quot TFT"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="test"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony Vaio GRT816M (PCG-GRT816M)"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="Sony Vaio GRT816S"/>
+          <leaf>
+            <attribute name="name" value="27_1102695977.jpg"/>
+            <attribute name="size" value="8377" />
+          </leaf>
+          <leaf>
+            <attribute name="name" value="27_1102695983.jpg"/>
+            <attribute name="size" value="8377" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="Sony Vaio GRT896HP (PCG-GRT896HP)"/>
+          <leaf>
+            <attribute name="name" value="28_1102695991.jpg"/>
+            <attribute name="size" value="8377" />
+          </leaf>
+          <leaf>
+            <attribute name="name" value="28_1102695998.jpg"/>
+            <attribute name="size" value="8377" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="Sony Vaio GRT916Z (PCG-GRT916Z)"/>
+          <leaf>
+            <attribute name="name" value="29_1102696007.jpg"/>
+            <attribute name="size" value="13152" />
+          </leaf>
+          <leaf>
+            <attribute name="name" value="29_1102696012.jpg"/>
+            <attribute name="size" value="13152" />
+          </leaf>
+        </branch>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Notebooks"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="amd_pc"/>
+      <branch>
+        <attribute name="name" value="bis_500_eur"/>
+        <leaf>
+          <attribute name="name" value="bis 500 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD Starter - Kitt"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - XP Nightrider"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD K2"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - Bonny Edition"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="bis_1000_eur"/>
+        <leaf>
+          <attribute name="name" value="bis 1.000 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - Living Room Edition"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD HomeSystem"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - Michael Schumacher"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - Alexander Wurz Racing Edition"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="bis_1500_eur"/>
+        <leaf>
+          <attribute name="name" value="bis 1.500 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - Silver Edition"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - Gold Edition"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - XP Force"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - 64 Bit Speed"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="ueber_1500_eur"/>
+        <leaf>
+          <attribute name="name" value="&amp;uuml;ber 1.500 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD - 64 Bit Extreme Double Performer"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony-Media Center XP3200"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Compaq - Flash Edition"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="MAXDATA - SuperGamer"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="PC mit AMD Prozessor"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="apple_pc"/>
+      <branch>
+        <attribute name="name" value="e_und_i_mac"/>
+        <leaf>
+          <attribute name="name" value="eMac und iMac"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="eMac Combo 17&quot;"/>
+          <leaf>
+            <attribute name="name" value="46_1102699495.jpg"/>
+            <attribute name="size" value="5041" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="eMac SuperDrive"/>
+          <leaf>
+            <attribute name="name" value="47_1102699509.jpg"/>
+            <attribute name="size" value="5041" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="iMac mit 20&quot; TFT"/>
+          <leaf>
+            <attribute name="name" value="48_1102699522.jpg"/>
+            <attribute name="size" value="6815" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="iMac mit 17&quot; TFT"/>
+          <leaf>
+            <attribute name="name" value="49_1102699532.jpg"/>
+            <attribute name="size" value="6080" />
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="powermac"/>
+        <leaf>
+          <attribute name="name" value="PowerMac"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="PowerMac 1,8 GHz"/>
+          <leaf>
+            <attribute name="name" value="50_1102699749.jpg"/>
+            <attribute name="size" value="6840" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="PowerMac Dual 1,8 GHz"/>
+          <leaf>
+            <attribute name="name" value="51_1102699760.jpg"/>
+            <attribute name="size" value="6840" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="20&quot; Cinema Display f&amp;uuml;r PowerMac"/>
+          <leaf>
+            <attribute name="name" value="52_1102699770.jpg"/>
+            <attribute name="size" value="5749" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="30&quot; Cinema Display f&amp;uuml;r PowerMac"/>
+          <leaf>
+            <attribute name="name" value="53_1102699780.jpg"/>
+            <attribute name="size" value="8416" />
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="server"/>
+        <leaf>
+          <attribute name="name" value="AppleServer"/>
+        </leaf>
+        <branch>
+          <attribute name="name" value="64 bit XServer"/>
+          <leaf>
+            <attribute name="name" value="54_1102700038.jpg"/>
+            <attribute name="size" value="11468" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="1 Terrabyte XServer"/>
+          <leaf>
+            <attribute name="name" value="55_1102700058.jpg"/>
+            <attribute name="size" value="4435" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="2,8 Terrabyte XServer"/>
+          <leaf>
+            <attribute name="name" value="56_1102700069.jpg"/>
+            <attribute name="size" value="6942" />
+          </leaf>
+        </branch>
+        <branch>
+          <attribute name="name" value="64 bit Dual XServer"/>
+          <leaf>
+            <attribute name="name" value="57_1102700050.jpg"/>
+            <attribute name="size" value="11468" />
+          </leaf>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="name" value="ibooks"/>
+        <leaf>
+          <attribute name="name" value="iBooks und PowerBooks"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="iBook 500"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="iBook 1000"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="eBook 500"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="eBook DeLuxe"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="25_1102695777.jpg"/>
+          <attribute name="size" value="8834" />
+        </leaf>
+        <leaf>
+          <attribute name="name" value="25_1102695794.jpg"/>
+          <attribute name="size" value="8834" />
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Apple Computer"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="intelpc"/>
+      <branch>
+        <attribute name="name" value="bis_500_eur"/>
+        <leaf>
+          <attribute name="name" value="bis 500 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Pentium 4, Celeron 1,3 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Celeron 2,2 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Pentium 4 HT"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Pentium 4"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="bis_1000_eur"/>
+        <leaf>
+          <attribute name="name" value="bis 1.000 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Siemen Fujitsu Pentium 4 - 1,8 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Combo Set mit 17&quot; Monitor"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="MAXDATA Pentium Celeron 2,8 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SONY Mediacenter Pentium 3"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="bis_1500_eur"/>
+        <leaf>
+          <attribute name="name" value="bis 1.500 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SONY MEDIA Edition Silver"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SONY MEDIA Edition Gold"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Compaq Extreme - Pentium 4 HT"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Cold Fusion Silver Gaming Edition"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="ueber_1500_eur"/>
+        <leaf>
+          <attribute name="name" value="&amp;uuml;ber 1.500 EUR"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SONY Infotainment Center - Celeron"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SONY Living Room Edition - HT 2,8 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Microsoft Bill Gates Edition"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Compaq Stylus"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="PC mit Intel Prozessor"/>
+      </leaf>
+    </branch>
+    <leaf>
+      <attribute name="name" value="Computer"/>
+    </leaf>
+  </branch>
+  <branch>
+    <attribute name="name" value="komponenten"/>
+    <branch>
+      <attribute name="name" value="cpu_und_mainboard"/>
+      <branch>
+        <attribute name="name" value="intel"/>
+        <leaf>
+          <attribute name="name" value="Intel"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Pentium P4 2.2GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Pentium P4 2.4GHz HT"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Centrino 1.2GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel Celeron 2.8GHz"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="amd"/>
+        <leaf>
+          <attribute name="name" value="AMD"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD XP 1,8 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD XP 2,2 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD XP 64 Bit 2,4 GHz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AMD XP 64 Bit 3,2 GHz"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="mainboards_intel"/>
+        <leaf>
+          <attribute name="name" value="Mainboards Intel"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="MSI Pentium performer"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ASUS P4 cyberdream"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Elitegroup Pentium"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ASUS P4 dynamic booster"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="mainboards_amd"/>
+        <leaf>
+          <attribute name="name" value="Mainboards AMD"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ASUS XP 64 Bit Raptor"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="MSI extreme dream K7"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Elitegroup K7 Turbo"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Elitegroup AMD 64 Bit Thunderstorm"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="CPU und Mainboard"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="ram"/>
+      <branch>
+        <attribute name="name" value="simm"/>
+        <leaf>
+          <attribute name="name" value="SIMM"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SIMM 72pin EDO 16MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SIMM 72pin EDO 32MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SIMM 72pin FPM 16MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SIMM 72pin FPM 32MB"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="dimm"/>
+        <leaf>
+          <attribute name="name" value="DIMM"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="DIMM 128MB PC133 SDRAM, CL2"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Kingston KTD-XPSD/128"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Kingston ValueRAM DIMM 256MB PC133 SDRAM CL3 (KVR133X64C3/256)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung DIMM 128MB PC133 SDRAM, CL3"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="ddr__ddr2"/>
+        <leaf>
+          <attribute name="name" value="DDR / DDR2"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Corsair DIMM XMS 256MB PC2700 DDR CL2-2-2-5-1T (PC333) (CMX256A-2700LL)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Infineon DIMM 512MB PC3200 DDR CL3 (PC400) (HYS64D64320GU-5)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Kingston HyperX DIMM Kit 512MB PC2-667 DDR2 CL4-4-4-10 (KHX5400D2K2/512)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung DIMM 256MB PC2-400 DDR2 CL3"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="notebook"/>
+        <leaf>
+          <attribute name="name" value="Notebook"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Infineon SO-DIMM 512MB PC2700 DDR CL2.5 (PC333)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Kingston ValueRAM SO-DIMM 256MB PC2700 DDR CL2.5 (PC333) (KVR333X64SC25/256)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="PowerRAM SO-DIMM 256MB PC2700 DDR CL2.5 (PC266)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SO-DIMM 512MB PC2100 DDR CL2.5 (PC266)"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="RAM"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="laufwerke"/>
+      <branch>
+        <attribute name="name" value="festplatten"/>
+        <leaf>
+          <attribute name="name" value="Festplatten"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung Spinpoint 160"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung Spinpoint 200"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Western Digital 120 GB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Maxtor 220GB"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="cdrom__brenner"/>
+        <leaf>
+          <attribute name="name" value="CDROM/Brenner"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="LiteOn LTN-520/525/526 bulk"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Mitsumi FX-4820/4824/4830, 48x, Bulk"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="LiteOn LSC-24081M Slim Combo"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="TEAC DW-224E Slim Combo"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="dvd__brenner"/>
+        <leaf>
+          <attribute name="name" value="DVD/Brenner"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Pioneer DVD-120/121 bulk"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="BenQ DVP-1650P/DVP-1650S bulk"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="LG Electronics GSA-4082B retail DVD-RW"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Toshiba SD-R5272 retail DVD-RW"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="sonstige"/>
+        <leaf>
+          <attribute name="name" value="Sonstige"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Fujitsu MO MCM3130AP, 1.3GB, intern/IDE"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP StorageWorks 9100mx Optical Drive, extern/SCSI (C1114M)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Iomega ZIP-Disk 750MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung SFD-321U Floppy 3.5&quot; extern/USB"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Laufwerke"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="controller_und_netzwerk"/>
+      <branch>
+        <attribute name="name" value="grafikkarten_und_tvkarten"/>
+        <leaf>
+          <attribute name="name" value="Grafikkarten/TVKarten"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ASUS AGP-V9999GT/TD/128 GeForce 6800 GT, 128MB DDR, DVI, TV-out, AGP"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ASUS Radeon 9200SE/T128, 128MB DDR, TV-out, AGP (90-C1VBG6-EUAY)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Palit XpertVision Radeon 9200 SE, 64MB DDR, DVI, TV-out, AGP"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sapphire Radeon 7500, 64MB DDR, DVI, TV-out, AGP"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="netzwerkkarten"/>
+        <leaf>
+          <attribute name="name" value="Netzwerkkarten"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="3Com 3C2000-T Gigabit NIC"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="3com 3CR990B-97 Secure NIC"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="D-Link DFE-530TX retail"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Intel PRO/1000XT Gigabit Server Adapter, 64-bit PCI-X (PWLA8490XT)"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="modems"/>
+        <leaf>
+          <attribute name="name" value="Modems"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Acer 56 Surf v.92 extern/USB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Anubis Typhoon Quick Com 56 PCI (51305)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="US Robotics 56K Faxmodem PCI, intern"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ZyXEL Omni 56K USB"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="scsiraid"/>
+        <leaf>
+          <attribute name="name" value="SCSI/RAID"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Adaptec AHA-2930U PCI"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Adaptec APD-1480 PowerDomain PCMCIA (MAC) (1847300)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Dawicontrol DC-2964 F Fast-SCSI-2, Retail"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Mylex AcceleRAID 170 U160-LVD RAID"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Controller und Netzwerk"/>
+      </leaf>
+    </branch>
+    <leaf>
+      <attribute name="name" value="Komponenten"/>
+    </leaf>
+  </branch>
+  <branch>
+    <attribute name="name" value="peripherie"/>
+    <branch>
+      <attribute name="name" value="monitore"/>
+      <branch>
+        <attribute name="name" value="crt"/>
+        <leaf>
+          <attribute name="name" value="CRT"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Belinea 17&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony SuperVision 19&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Eizo Graphics 21&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Belinea 21&quot;"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="tft_bis_171"/>
+        <leaf>
+          <attribute name="name" value="TFT bis 17,1&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Acer Vision 16&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony SDH 17&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Acer AL1730 17&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Belinea 17&quot;"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="tft_bis_18"/>
+        <leaf>
+          <attribute name="name" value="TFT bis 18,1&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Belinea 18&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Eizo L659 18&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Philips 18&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung 18&quot;"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="tft_ueber_18"/>
+        <leaf>
+          <attribute name="name" value="TFT &amp;uuml;ber 18,1&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Eizo FlexScan 21,3&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Acer AL203 20,1&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Belinea 19&quot;"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony SDM 19&quot;"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Monitore"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="drucker_und_scanner"/>
+      <branch>
+        <attribute name="name" value="laser"/>
+        <leaf>
+          <attribute name="name" value="Laserdrucker"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon LBP 2000"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Laserjet 3200"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Epson AcuLaser"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Color LaserJet"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="tintenstrahl"/>
+        <leaf>
+          <attribute name="name" value="Tintenstrahldrucker"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon i650"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Inkjet 800"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Epson Stylus C66"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Lexmark Optra"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="photo"/>
+        <leaf>
+          <attribute name="name" value="Photodrucker"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon Selphy CP-400"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP Photosmart 375"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Kodak KP 8500"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony DPP-SV55"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="scanner"/>
+        <leaf>
+          <attribute name="name" value="Scanner"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon CanoScan"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Epson Perfection"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Mustek"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon DR-9080C"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Drucker und Scanner"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="pc_audio"/>
+      <branch>
+        <attribute name="name" value="soundkarten"/>
+        <leaf>
+          <attribute name="name" value="Soundkarten"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Creative Sound Blaster"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Creative Sound Blaster Live!"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="M-AUDIO Delta"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="TerraTec Game"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="externe"/>
+        <leaf>
+          <attribute name="name" value="externe Soundl&amp;ouml;sungen"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="TerraTec Producer"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="M-AUDIO Firewire"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Philips Aurelium"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Creative Sound Blaster Audigy"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="boxen"/>
+        <leaf>
+          <attribute name="name" value="Boxen und Soundysteme"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Anubis Typhoon Easylite"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Creative Inspire"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HMS Wavemaster"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Logitech Z-2300"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="kopfhoerer"/>
+        <leaf>
+          <attribute name="name" value="Kopfh&amp;ouml;rer"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AKG HEARO 888 Titan"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="AKG K 55"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Hama Koss"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Philips SBC"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="PC Audio"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="eingabegeraete"/>
+      <branch>
+        <attribute name="name" value="tastaturen"/>
+        <leaf>
+          <attribute name="name" value="Tastaturen"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Cherry G83-6300"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Cherry MultiBoard"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="FSC Tastatur"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Logitech Cordless Desktop"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="maeuse"/>
+        <leaf>
+          <attribute name="name" value="M&amp;auml;use"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="3Dconnexion Magellan/SpaceMouse"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="BenQ M306 Cordless Optical"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Logitech Cordless Click!"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Microsoft IntelliMouse Optical"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="trackballs"/>
+        <leaf>
+          <attribute name="name" value="Trackballs"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Razer Diamondback Magma"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Microsoft Trackball Explorer"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="TerraTec Mystify"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Microsoft Wireless Trackball"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="joysticks"/>
+        <leaf>
+          <attribute name="name" value="Joysticks"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="CH Fighterstick"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Logitech Dual Action"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Saitek R440 Force Feedback Wheel"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Thrustmaster FireStorm"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Eingabeger&amp;auml;te"/>
+      </leaf>
+    </branch>
+    <leaf>
+      <attribute name="name" value="Peripherie"/>
+    </leaf>
+  </branch>
+  <branch>
+    <attribute name="name" value="zubehoerundsonstiges"/>
+    <branch>
+      <attribute name="name" value="palm_pda_gps"/>
+      <branch>
+        <attribute name="name" value="pocket_pc"/>
+        <leaf>
+          <attribute name="name" value="Pocket PC's"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="FSC Pocket LOOX 410 (S26391-K150-V121)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP iPAQ H5550 (FA107A)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Toshiba Pocket PC e400"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Yakumo PDA delta"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="pda"/>
+        <leaf>
+          <attribute name="name" value="PDA's"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="PalmOne Treo 600"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="palmOne Zire (P80707ML3)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony Cli&#233; PEG-NZ90"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony Cli&#233; PEG-T625C"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="smartphones"/>
+        <leaf>
+          <attribute name="name" value="Smartphones"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Siemens U15"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Nokia 6650"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung SGH-Z105"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony Ericsson Z1010"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="gps"/>
+        <leaf>
+          <attribute name="name" value="GPS"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Garmin iQue 3600"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP iPAQ rz1710 GPS-Bundle"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Navigon MobileNavigator 4 ADAC-Set"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="TomTom Navigator Bluetooth f&amp;uuml;r Palm Alpenregion (1B50.075)"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Palmtops, PDA's ..."/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="speichermedien"/>
+      <branch>
+        <attribute name="name" value="cd_rohlinge"/>
+        <leaf>
+          <attribute name="name" value="CD Rohlinge"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="BestMedia Platinum CD-R 80min/700MB, 100er Pack"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Fujifilm CD-R 80min/700MB, 10er Pack"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Philips CD-R 80min/700MB, 50er Pack"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sony CD-R 80min/700MB, 50er Pack"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="dvd_rohlinge"/>
+        <leaf>
+          <attribute name="name" value="DVD Rohlinge"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="BenQ DVD+R 4.7GB, 5er Pack"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="BestMedia Platinum DVD-R 4.7GB, 25er Pack"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Memorex DVD+RW 4.7GB, 5er Pack"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="TDK DVD-R 4.7GB, 50er Pack"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="usb_sticks"/>
+        <leaf>
+          <attribute name="name" value="USB Sticks"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Kingston 256 MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Samsung 512MB USB Stick"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Apacer HandySteno 256MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SanDisk Cruzer Mini 1024MB"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="speicherkarten"/>
+        <leaf>
+          <attribute name="name" value="Speicherkarten"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Lexar CompactFlash 256MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Infineon Secure Digital Card (SD) 512MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Hama MemoryStick Pro 256MB"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SanDisk CompactFlash Card 4096MB"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Speichermedien"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="tuning"/>
+      <branch>
+        <attribute name="name" value="gehaeuse"/>
+        <leaf>
+          <attribute name="name" value="Geh&amp;auml;use"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Casetek CK-1016 Midi Tower ATX (versch. Farben, versch. Netzteile)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Casetek CS-C1007 (versch. Modelle, versch. Netzteile)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Chieftec Dragon DG-01W/DG-01WD, Mini-Tower wei&amp;szlig; (ohne Netzteil)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Linkworld B319U Midi-Tower 300W ATX (versch. Farben)"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="luftkuehlung"/>
+        <leaf>
+          <attribute name="name" value="Luftk&amp;uuml;hlung"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Gigabyte PCU22-VG Heatpipe-CPU-K&amp;uuml;hler (Sockel A/754/478/775/4000+/4.0GHz)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Sharkoon StrobeFan blue"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SilverStone Nitrogon NT01 K&amp;uuml;hlk&amp;ouml;rper (Sockel 478)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="SmartCooler FSM1497 CPU-K&amp;uuml;hler (SECC II)"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="wasserkuehlung"/>
+        <leaf>
+          <attribute name="name" value="Wasserk&amp;uuml;hlung"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Aqua Computer Aquadrive Micro Festplatten-K&amp;uuml;hler"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Asetek VapoChill LightSpeed AC 220V"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="ThermalTake Aquarius II (A1604)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Innovatek Cool-Matic FX rev1.0 GPU+RAM-K&amp;uuml;hler (500 665)"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="schalldaemmung"/>
+        <leaf>
+          <attribute name="name" value="Schalld&amp;auml;mmung"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Akasa D&amp;auml;mmatten Set f&amp;uuml;r PC Geh&amp;auml;use (verschiedene Modelle)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Blacknoise Noiseblocker Evolution EQ D&amp;auml;mmmatten-Set f&amp;uuml;r Chieftec &quot;A&quot;-Serie"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Innovatek raptorVibe (versch. Farben)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="NoiseControl Magic Fleece 0.75m&#178;, Schalld&amp;auml;mmung selbstklebend"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="PC Tuning und Casemodding"/>
+      </leaf>
+    </branch>
+    <branch>
+      <attribute name="name" value="verbrauchsmaterial"/>
+      <branch>
+        <attribute name="name" value="druckerpatronen"/>
+        <leaf>
+          <attribute name="name" value="Druckerpatronen"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon BC-1000BK Druckkopf"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP C3845A PhotoSmart &quot;Purple Moon&quot; Photo-Druckkopf"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Lexmark 018C0031E Tintenpatrone photo"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Epson T009402 Tinte Farbe Doppelpack"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="toner"/>
+        <leaf>
+          <attribute name="name" value="Toner"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon C-EXV2bk Toner schwarz"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP C4152A Toner Cartridge"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Xerox Tektronix Phaser 600 ColorStix"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="OKI 00079801 Toner schwarz"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="kabel"/>
+        <leaf>
+          <attribute name="name" value="Kabel"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Koax Netzwerkkabel"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="FireWire 800 IEEE-1394b Kabel"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Druckerkabel 3m"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Belkin BusStation USB Modularer Hub"/>
+        </leaf>
+      </branch>
+      <branch>
+        <attribute name="name" value="sonstiges"/>
+        <leaf>
+          <attribute name="name" value="Sonstiges"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Canon BF-102A3, Hinterdruckfolie, A3, 20 Blatt (1047a002) (F51-2291-500)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Tekram IR-210 Serial Infrarot Adapter"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="HP C3862A Velinpapier (75 g/m&#178;/24-Zoll-Rolle)"/>
+        </leaf>
+        <leaf>
+          <attribute name="name" value="Avocent SwitchView PC 4-Port KVM Switch"/>
+        </leaf>
+      </branch>
+      <leaf>
+        <attribute name="name" value="Verbrauchsmaterial und Kabel"/>
+      </leaf>
+    </branch>
+    <leaf>
+      <attribute name="name" value="Zubeh&amp;ouml;r und Sonstiges"/>
+    </leaf>
+  </branch>
+</branch>
+</tree>

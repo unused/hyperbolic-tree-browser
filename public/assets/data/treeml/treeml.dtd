@@ -1,0 +1,41 @@
+<!--
+	Copyright (c) 2003
+	Jean-Daniel Fekete, INRIA
+	Catherine Plaisant, University of Maryland
+
+	$Id$
+
+	DTD describing a tree structure for visualization
+
+	Provided to support the InfoVis 2003 Contest
+	See http://www.cs.umd.edu/hcil/iv03contest/index.shtml
+
+-->
+
+<!ELEMENT tree (declarations?, (branch | leaf)* )>
+<!ATTLIST tree
+  version CDATA #FIXED "1.0"
+  src CDATA #IMPLIED
+  desc CDATA #IMPLIED
+  date CDATA #IMPLIED
+  author CDATA #IMPLIED >
+
+<!ELEMENT declarations (attributeDecl+) >
+<!ELEMENT attributeDecl EMPTY>
+<!ATTLIST attributeDecl
+  name CDATA #REQUIRED
+  type (Int|Integer|Long|Float|Real|String|Date|Category) "Int"
+  control CDATA #IMPLIED >
+
+<!ELEMENT branch ( attribute*, (branch | leaf)* ) >
+<!ATTLIST branch
+  label CDATA #IMPLIED >
+
+<!ELEMENT leaf (attribute*) >
+<!ATTLIST leaf
+  label CDATA #IMPLIED >
+
+<!ELEMENT attribute (#PCDATA) >
+<!ATTLIST attribute
+  name CDATA #REQUIRED
+  value CDATA #REQUIRED >

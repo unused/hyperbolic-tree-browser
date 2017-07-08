@@ -24,7 +24,8 @@ TreeBrowserKeyboardNavigation.listenFor('node');
 
 const updateVisualisation = (file, content) => {
   document.querySelector('svg').firstChild.remove();
-  const type = file.name.endsWith('.json') ? 'json' : 'xml';
+  const type = file.name.endsWith('.json') ?  'json'
+    : (file.name.endsWith('.skos.xml') ? 'skos' : 'tree');
   (new HierarchyData(type))
     .load(content)
     .then(data => treemap(d3.hierarchy(data)))
