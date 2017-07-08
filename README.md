@@ -1,16 +1,24 @@
 # Hyperbolic Tree Browser with D3.js
 
-A hyperbolic tree implementation using D3.js.
+A hyperbolic tree implementation using D3.js. The projects [github page](https://unused.github.com/hyperbolic-tree-browser) shows a demonstrational application, allowing to render a hyperbolic browser tree, interacting with drag and drop or doubleclick and upload new data files. Data types will be guessed by the file endings, use `.json` for json files, `.skos.xml` for skos files and `.xml` for treeml data.
+
+## Implementation Details
 
 The mathematical base and implementation is based upon the work of Benjamin
 Bergé and Christophe Bouthier, see "Mathematics and Algorithms for the
-Hyperbolic Tree Visualization".
+Hyperbolic Tree Visualization". Sourcecode can be found in `src/hypertree`
+directory.
 
 The library hyperbolic\_math.js is based on the work of John Lamping and Ramana
 Rao, see "The Hyperbolic Browser : A Focus 1 Context Technique for Visualizing
-Large Hierarchies".
+Large Hierarchies". Sourcecode can be found in `src/lib` directory.
 
-## Usage
+The d3 visualisation using a radial browser tree can be found in
+`src/d3_visualisations` directory. Note that handling drag and drop parallel to
+click causes several browser issues therefor a workaround was implemented
+detecting a click from the drag events.
+
+## Setup and Usage
 
 You can run the demo application by using [npm] or [yarn], installing the
 javascript dependencies with `yarn install` and starting the demo application
@@ -36,7 +44,7 @@ index file at [/src/app.js].
 See [/src/utils/hierarchy\_data.json] to find usage information for the file
 import.
 
-## Setup and Development
+## Development
 
 The ES6 javascript source code located in [/src/] directory is transformed and
 merged into browser friendly JavaScript using **webpack** and **babel**

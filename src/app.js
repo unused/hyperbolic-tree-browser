@@ -13,14 +13,9 @@ const treemap = d3.tree()
 
 TreeBrowserKeyboardNavigation.listenFor('node');
 
-/* demo application */
-(new HierarchyData('json'))
-  .fetch('/assets/data/simple.json')
-  .then(data => treemap(d3.hierarchy(data)))
-  .then(root => {
-    let tree; (tree = new HyperTree(root).build()).view.draw();
-    new RadialTreeBrowser('svg').draw(tree.view);
-  });
+const data = treemap(d3.hierarchy({"name":"Victreebel","children":[{"name":"Nidorino","children":[{"name":"Haunter","children":[{"name":"Nidoqueen"},{"name":"Arbok"},{"name":"Arbok"},{"name":"Chansey"}]},{"name":"Ninetales","children":[{"name":"Vileplume"},{"name":"Ponyta"}]},{"name":"Psyduck","children":[{"name":"Weezing"}]}]},{"name":"Venusaur","children":[{"name":"Diglett","children":[{"name":"Voltorb"},{"name":"Abra"},{"name":"Magneton"},{"name":"Doduo"}]},{"name":"Beedrill","children":[{"name":"Exeggutor"},{"name":"Jigglypuff"}]},{"name":"Blastoise","children":[{"name":"Marowak"},{"name":"Weepinbell"},{"name":"Ditto"},{"name":"Zapdos"},{"name":"Jynx"}]},{"name":"Tentacruel","children":[{"name":"Poliwag"},{"name":"Arbok"},{"name":"Charmeleon"}]}]},{"name":"Vulpix","children":[{"name":"Spearow","children":[{"name":"Alakazam"},{"name":"Bellsprout"}]}]},{"name":"Marowak","children":[{"name":"Magmar","children":[{"name":"Chansey"},{"name":"Seel"}]},{"name":"Gastly","children":[{"name":"Charizard"}]},{"name":"Arbok","children":[{"name":"Tentacruel"},{"name":"Wigglytuff"},{"name":"Kakuna"}]}]}]}));
+let tree; (tree = new HyperTree(data).build()).view.draw();
+new RadialTreeBrowser('svg').draw(tree.view);
 
 const updateVisualisation = (file, content) => {
   document.querySelector('svg').firstChild.remove();

@@ -1,7 +1,5 @@
 /build/*
 /node_modules
 /npm-debug.log
-/public/assets/bundle.js
-/public/assets/styles.css
-public/assets/data/500000.json
-public/assets/data/5000000.json
+/public/assets/data/500000.json
+/public/assets/data/5000000.json

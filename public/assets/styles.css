@@ -1,0 +1,23 @@
+.radial-tree-browser .node {
+  cursor: pointer;
+  user-select: none; }
+  .radial-tree-browser .node circle {
+    fill: Chocolate; }
+  .radial-tree-browser .node.leaf circle {
+    fill: DarkSlateGray; }
+  .radial-tree-browser .node text {
+    font: 1.25rem sans-serif; }
+  .radial-tree-browser .node.selected {
+    outline: .125rem dashed red; }
+
+.radial-tree-browser .edge {
+  fill: none;
+  stroke: CadetBlue;
+  stroke-opacity: 0.75;
+  stroke-width: .125rem; }
+
+.import-controls {
+  position: absolute;
+  background: none; }
+  .import-controls.dragover {
+    background: rgba(0, 0, 0, 0.6); }
