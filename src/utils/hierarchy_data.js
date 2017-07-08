@@ -1,5 +1,8 @@
 import * as d3 from 'd3';
 
+import skos   from './converter/skos.js';
+import treeml from './converter/treeml.js';
+
 /**
  * Import hierarchical data by type and resource.
  *
@@ -40,12 +43,10 @@ class HierarchyData {
 
   convert(data) {
     return this[{
-      json: 'convertJson'
+      treeml: treeml,
+      skos:   skos,
+      json:   data => (data.json ? data.json() : JSON.parse(data))
     }[this.type]](data);
-  }
-
-  convertJson(data) {
-    return data.json ? data.json() : JSON.parse(data);
   }
 
   fetch(resource) {
