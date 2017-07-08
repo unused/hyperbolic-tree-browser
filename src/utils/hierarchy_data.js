@@ -3,13 +3,14 @@ import * as d3 from 'd3';
 /**
  * Import hierarchical data by type and resource.
  *
- * Construct with any support type of json, skos, or xml, retrieving data
+ * Construct with any support type of json, skos, or treeml, retrieving data
  * from remote using `fetch`, reading using `load` or direct upload using
  * `upload`.
  *
  * Usage:
  *   (new HierarchyData('json')).fetch('https://example.com/data.json');
- *   (new HierarchyData('scos')).fetch('https://example.com/data.scos');
+ *   (new HierarchyData('skos')).fetch('https://example.com/data.xml');
+ *   (new HierarchyData('tree')).fetch('https://example.com/data.xml');
  *   (new HierarchyData('json')).load(<json string>);
  *   (new HierarchyData('json')).upload();
  **/
@@ -38,7 +39,9 @@ class HierarchyData {
   }
 
   convert(data) {
-    return this[{ json: 'convertJson' }[this.type]](data);
+    return this[{
+      json: 'convertJson'
+    }[this.type]](data);
   }
 
   convertJson(data) {

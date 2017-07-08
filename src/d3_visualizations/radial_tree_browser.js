@@ -68,9 +68,7 @@ class RadialTreeBrowser {
       .enter().append('path')
         .attr('class', 'edge')
         .attr('d', d => {
-          const s = d.source;
-          const t = d.target;
-          console.debug(s.name, t.radius, t.name);
+          const s = d.source, t = d.target;
           return `M${s.x},${s.y}S${t.x},${s.y} ${t.x},${t.y}`;
         });
   }
